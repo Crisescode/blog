@@ -10,6 +10,8 @@
 <li><strong>面向对象</strong>编程语言会操作一组对象。其中对象拥有内部状态，并能够以某种方式支持请求和修改这个内部状态的方法。Smalltalk 和 Java 都是面向对象的语言。C++ 和 Python 支持面向对象编程，但并不强制使用面向对象特性。</li>
 <li>而<strong>函数式</strong>编程则是将一个问题分解成一系列函数。理想情况下，函数只接受输入并产生输出，没有任何内部状态会影响为给定输入产生的输出。众所周知的函数式语言包括ML家族(标准ML、OCaml和其他变体)和Haskell。</li>
 </ul>
+<a id="more"></a>
+
 <p>一般语言设计者在设计语言时，会选择侧重强调一种特定的编程方式，但这会让以不同方式来编写程序变得困难。因此有些语言就被设计成多范式语言，用以支持以上几种不同的编程方式。其中<strong>Lisp，C++ 和 Python 都是多范式语言；使用这些语言，你可以编写主要为过程式，面向对象或者函数式的程序和函数库。</strong>在大型程序中，不同的部分可能会采用不同的方式编写；比如 GUI 可能是面向对象的而处理逻辑则是过程式或者函数式。</p>
 <p>这篇文章主要是来讲解函数式编程，因此接下来主要围绕函数式编程进行展开。</p>
 <h2 id="二、函数式编程"><a href="#二、函数式编程" class="headerlink" title="二、函数式编程"></a>二、函数式编程</h2><h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><p>函数式编程：即为给定输入，输入会流经一系列函数，每个函数接收输入并输出结果。并且这个过程，在每个函数内部并不会修改全局变量或者有其他副作用。函数式编程允许把函数本身作为参数传入另一个函数，还允许返回一个函数。</p>
@@ -29,7 +31,9 @@
     <title>Python之函数式编程模块（2）</title>
     <url>/blog/2020/06/19/Python%E4%B9%8B%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97%EF%BC%882%EF%BC%89/</url>
     <content><![CDATA[<p>这篇文章主要是讲解一些函数式编程常用的模块，比如：<code>itertools</code>, <code>functools</code>以及<code>operator</code>。</p>
-<h2 id="一、itertools-–用以创建迭代器的模块"><a href="#一、itertools-–用以创建迭代器的模块" class="headerlink" title="一、itertools –用以创建迭代器的模块"></a>一、itertools –用以创建迭代器的模块</h2><h2 id="二、functools-–-高阶函数可调用对象上的操作"><a href="#二、functools-–-高阶函数可调用对象上的操作" class="headerlink" title="二、functools – 高阶函数可调用对象上的操作"></a>二、functools – 高阶函数可调用对象上的操作</h2><h2 id="三、operator-–-标准运算符替代函数"><a href="#三、operator-–-标准运算符替代函数" class="headerlink" title="三、operator – 标准运算符替代函数"></a>三、operator – 标准运算符替代函数</h2><p>在函数式编程中，我们经常需要把算术运算符当作函数使用，因此可以借助operator模块。operator 模块提供了一套与Python的内置运算符对应的高效率函数。例如，operator.add(x, y) 与表达式 x+y 相同。</p>
+<h2 id="一、itertools-–用以创建迭代器的模块"><a href="#一、itertools-–用以创建迭代器的模块" class="headerlink" title="一、itertools –用以创建迭代器的模块"></a>一、itertools –用以创建迭代器的模块</h2><a id="more"></a>
+
+<h2 id="二、functools-–-高阶函数可调用对象上的操作"><a href="#二、functools-–-高阶函数可调用对象上的操作" class="headerlink" title="二、functools – 高阶函数可调用对象上的操作"></a>二、functools – 高阶函数可调用对象上的操作</h2><h2 id="三、operator-–-标准运算符替代函数"><a href="#三、operator-–-标准运算符替代函数" class="headerlink" title="三、operator – 标准运算符替代函数"></a>三、operator – 标准运算符替代函数</h2><p>在函数式编程中，我们经常需要把算术运算符当作函数使用，因此可以借助operator模块。operator 模块提供了一套与Python的内置运算符对应的高效率函数。例如，operator.add(x, y) 与表达式 x+y 相同。</p>
 <p>operator 模块为多个算术运算符提供了对应的函数，从而避免编写<br><code>lambda a, b: a * b</code> 这种平凡的匿名函数。这两种做法具体如下：</p>
 <ul>
 <li>使用<code>lambda a, b: a * b</code>匿名函数来计算阶乘：</li>

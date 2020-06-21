@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"crisescode.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这篇文章主要是讲解一些函数式编程常用的模块，比如：itertools, functools以及operator。 一、itertools –用以创建迭代器的模块二、functools – 高阶函数可调用对象上的操作三、operator – 标准运算符替代函数在函数式编程中，我们经常需要把算术运算符当作函数使用，因此可以借助operator模块。operator 模块提供了一套与Python的内置运">
+  <meta name="description" content="这篇文章主要是讲解一些函数式编程常用的模块，比如：itertools, functools以及operator。 一、itertools –用以创建迭代器的模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python之函数式编程模块（2）">
 <meta property="og:url" content="https://crisescode.github.io/blog/2020/06/19/Python%E4%B9%8B%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97%EF%BC%882%EF%BC%89/index.html">
 <meta property="og:site_name" content="Crise，Fighting！">
-<meta property="og:description" content="这篇文章主要是讲解一些函数式编程常用的模块，比如：itertools, functools以及operator。 一、itertools –用以创建迭代器的模块二、functools – 高阶函数可调用对象上的操作三、operator – 标准运算符替代函数在函数式编程中，我们经常需要把算术运算符当作函数使用，因此可以借助operator模块。operator 模块提供了一套与Python的内置运">
+<meta property="og:description" content="这篇文章主要是讲解一些函数式编程常用的模块，比如：itertools, functools以及operator。 一、itertools –用以创建迭代器的模块">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-19T06:35:04.000Z">
-<meta property="article:modified_time" content="2020-06-19T15:09:58.460Z">
+<meta property="article:modified_time" content="2020-06-21T15:13:57.450Z">
 <meta property="article:author" content="Crise">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-19 14:35:04 / 修改时间：23:09:58" itemprop="dateCreated datePublished" datetime="2020-06-19T14:35:04+08:00">2020-06-19</time>
+              <time title="创建时间：2020-06-19 14:35:04" itemprop="dateCreated datePublished" datetime="2020-06-19T14:35:04+08:00">2020-06-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-21 23:13:57" itemprop="dateModified" datetime="2020-06-21T23:13:57+08:00">2020-06-21</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -220,7 +226,9 @@
 
       
         <p>这篇文章主要是讲解一些函数式编程常用的模块，比如：<code>itertools</code>, <code>functools</code>以及<code>operator</code>。</p>
-<h2 id="一、itertools-–用以创建迭代器的模块"><a href="#一、itertools-–用以创建迭代器的模块" class="headerlink" title="一、itertools –用以创建迭代器的模块"></a>一、itertools –用以创建迭代器的模块</h2><h2 id="二、functools-–-高阶函数可调用对象上的操作"><a href="#二、functools-–-高阶函数可调用对象上的操作" class="headerlink" title="二、functools – 高阶函数可调用对象上的操作"></a>二、functools – 高阶函数可调用对象上的操作</h2><h2 id="三、operator-–-标准运算符替代函数"><a href="#三、operator-–-标准运算符替代函数" class="headerlink" title="三、operator – 标准运算符替代函数"></a>三、operator – 标准运算符替代函数</h2><p>在函数式编程中，我们经常需要把算术运算符当作函数使用，因此可以借助operator模块。operator 模块提供了一套与Python的内置运算符对应的高效率函数。例如，operator.add(x, y) 与表达式 x+y 相同。</p>
+<h2 id="一、itertools-–用以创建迭代器的模块"><a href="#一、itertools-–用以创建迭代器的模块" class="headerlink" title="一、itertools –用以创建迭代器的模块"></a>一、itertools –用以创建迭代器的模块</h2><a id="more"></a>
+
+<h2 id="二、functools-–-高阶函数可调用对象上的操作"><a href="#二、functools-–-高阶函数可调用对象上的操作" class="headerlink" title="二、functools – 高阶函数可调用对象上的操作"></a>二、functools – 高阶函数可调用对象上的操作</h2><h2 id="三、operator-–-标准运算符替代函数"><a href="#三、operator-–-标准运算符替代函数" class="headerlink" title="三、operator – 标准运算符替代函数"></a>三、operator – 标准运算符替代函数</h2><p>在函数式编程中，我们经常需要把算术运算符当作函数使用，因此可以借助operator模块。operator 模块提供了一套与Python的内置运算符对应的高效率函数。例如，operator.add(x, y) 与表达式 x+y 相同。</p>
 <p>operator 模块为多个算术运算符提供了对应的函数，从而避免编写<br><code>lambda a, b: a * b</code> 这种平凡的匿名函数。这两种做法具体如下：</p>
 <ul>
 <li>使用<code>lambda a, b: a * b</code>匿名函数来计算阶乘：</li>
@@ -458,9 +466,9 @@
     <span title="站点阅读时长">2 分钟</span>
 </div>
 
-<div class="busuanzi-count">
+<div class="busuanzi-count" >
     <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="site-uv" style="margin: 0 auto">
+    <span class="site-uv" style="position:absolute">
       <i class="fa fa-user"></i>
       访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
     </span>
