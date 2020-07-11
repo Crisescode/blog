@@ -260,6 +260,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://crisescode.github.io/blog/2020/07/11/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%9B%9B%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/author.jpg">
+      <meta itemprop="name" content="Crise">
+      <meta itemprop="description" content="分享技术，记录生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LuckyCrise">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/11/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%9B%9B%E5%A4%A9/" class="post-title-link" itemprop="url">剑指offer 第四天</a>
+        </h2>
+
+        <div class="post-meta">
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-11 23:10:27 / 修改时间：23:50:48" itemprop="dateCreated datePublished" datetime="2020-07-11T23:10:27+08:00">2020-07-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">刷题</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>860</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="JZ4-重建二叉树"><a href="#JZ4-重建二叉树" class="headerlink" title="JZ4 重建二叉树"></a>JZ4 重建二叉树</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列 [1,2,4,7,3,5,6,8] 和中序遍历序列 [4,7,2,1,5,3,8,6] ，则重建二叉树并返回。</p>
+</blockquote>
+<p><strong>解法思路：</strong><br>使用递归的方法求解。这道题需要对二叉树的性质比较了解，需要熟悉二叉树的几种遍历方式。</p>
+<p><strong>前序遍历是先遍历根节点，然后遍历左节点，最后遍历右节点（根左右）</strong></p>
+<p><strong>中序遍历是先遍历左节点，然后遍历根节点，最后遍历右节点（左根右）</strong></p>
+<p><strong>后序遍历是先遍历左节点，然后遍历右节点，最后遍历根节点（根左右）</strong></p>
+<p>本题给定前序遍历以及中序遍历的序列，可以知道前序遍历第一个值一定是根节点。而根节点在中序遍历中会把左右子树分成两半。因此本题的关键是找到根节点，然后将左右子树依次递归重建得到二叉树。</p>
+<p>使用递归是需要结束条件的，当前序或中序遍历序列为<code>None</code>时，便可推出递归，得到二叉树。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2020/07/11/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%9B%9B%E5%A4%A9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://crisescode.github.io/blog/2020/07/08/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%89%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -287,6 +386,22 @@
 
               <time title="创建时间：2020-07-08 22:33:32" itemprop="dateCreated datePublished" datetime="2020-07-08T22:33:32+08:00">2020-07-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-11 23:58:13" itemprop="dateModified" datetime="2020-07-11T23:58:13+08:00">2020-07-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">刷题</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -294,7 +409,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>478</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,7 +428,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h3 id="JZ11-二进制中1的个数"><a href="#JZ11-二进制中1的个数" class="headerlink" title="JZ11 二进制中1的个数"></a>JZ11 二进制中1的个数</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>输入一个整数，输出该数32位二进制表示中1的个数。其中负数用补码表示。</p>
+</blockquote>
+<p><strong>解法思路：</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2020/07/08/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%89%E5%A4%A9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -461,7 +588,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-07 23:04:52" itemprop="dateModified" datetime="2020-07-07T23:04:52+08:00">2020-07-07</time>
+                <time title="修改时间：2020-07-09 21:31:42" itemprop="dateModified" datetime="2020-07-09T21:31:42+08:00">2020-07-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -479,7 +606,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>275</span>
+              <span>507</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -502,9 +629,11 @@
 <blockquote>
 <p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
 </blockquote>
-<p><strong>解法一思路：</strong><br>使用迭代的方法，比较pHead1以及pHead2的值，</p>
-<!--�6-->
-<p><strong>解法二思路：</strong><br>使用递归的思想</p>
+<p><strong>解法一思路：</strong><br>使用迭代的方法。先判断临界情况，依次判断输入的两个链表是否为空指针，如果有其中一个为空指针链表，则返回另一个有序的链表。</p>
+<p>然后初始化一个新链表，依次比较两个有序链表的值，哪个链表的值较小，则新链表的指针指向该值。继续循环，依次比较，最终返回单调递增的新链表。</p>
+<!--�770-->
+<p><strong>解法二思路：</strong><br>使用递归的方法。大体思路同上，先判断临界情况，依次判断输入的两个链表是否为空指针，如果有其中一个为空指针链表，则返回另一个有序的链表。</p>
+<p>然后依次比较两个有序链表的值，哪个链表的值较小，则将该节点赋值给新链表。使用递归，直至其中一个链表为None，最终返回和并得到的单调递增链表。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2020/07/06/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%80%E5%A4%A9/#more" rel="contents">
@@ -919,7 +1048,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -967,6 +1096,9 @@
         <li class="links-of-blogroll-item">
           <a href="https://gfsoso.99lb.net/sci-hub.html" title="https:&#x2F;&#x2F;gfsoso.99lb.net&#x2F;sci-hub.html" rel="noopener" target="_blank">谷歌学术</a>
         </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kalasearch.cn/" title="https:&#x2F;&#x2F;kalasearch.cn&#x2F;" rel="noopener" target="_blank">卡拉搜索</a>
+        </li>
     </ul>
   </div>
 
@@ -1004,13 +1136,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2 分钟</span>
+    <span title="站点阅读时长">4 分钟</span>
 </div>
 
         
