@@ -28,6 +28,75 @@
       </tags>
   </entry>
   <entry>
+    <title>剑指offer 第六天</title>
+    <url>/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%85%AD%E5%A4%A9/</url>
+    <content><![CDATA[<h3 id="JZ6-旋转数组的最小数字"><a href="#JZ6-旋转数组的最小数字" class="headerlink" title="JZ6 旋转数组的最小数字"></a>JZ6 旋转数组的最小数字</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+</blockquote>
+<p><strong>解法思路：</strong><br>这题主要是考察二分查找。<strong>二分查找</strong>，又叫折半查找。它的前提是线性表中的数据必须是有序的，线性表必须采用顺序存储。主要思想是：在有序表中，去中间记录作为比较对象，若给定值与中间记录的关键字相等，则查找成功；若给定值小于中间记录的关键字，则在中间记录的左半区继续查找；若给定值大于中间记录的关键字，则在中间记录的右半区继续查找；不断重复上述过程，直至查找成功，或所有查找区域无记录，查找失败为止。</p>
+<p>上面介绍了二分查找的主要思路，而本题难点在于找到中间值与谁进行比较？ 再认真审下题，给定的是非递减排序的数组，也就是“平序”或升序。例如：<code>[1, 2, 3, 3, 3, 5, 6]</code>（“平序”），<code>[1, 2, 3, 4, 5, 6]</code>（升序）。然后再做旋转得到旋转数组<code>[3, 3, 5, 6, 1, 2, 3]</code>，<code>[4, 5, 6, 1, 2, 3]</code>，可以确定的是旋转后的数组<code>nums[0] &gt;= nums[-1]</code>恒成立。</p>
+<p>这样也就得到了<code>nums[mid]</code>与哪个值进行比较了，当然是：</p>
+<ul>
+<li><code>nums[mid] &gt; nums[left]</code> , 这个时候 <code>left = mid + 1</code></li>
+<li><code>nums[mid] &lt; nums[right]</code>, 这个时候 <code>right = mid</code></li>
+<li><code>nums[mid] = nums[right]</code>, 这个时候 <code>left += 1</code></li>
+</ul>
+<p>这里可以一定意义上认为<code>nums[left]</code>与<code>nums[right]</code>近似相等，这样便于理解。</p>
+<blockquote>
+<p>注: 以上<code>nums</code>代表传入的旋转数组，<code>left</code>指数组的第一个数，<code>right</code>指数组末尾的数，<code>mid</code>指数组中间位置的数。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def minNumberInRotateArray(self, rotateArray):</span><br><span class="line">        # write code here</span><br><span class="line">        if len(rotateArray) &#x3D;&#x3D; 0:</span><br><span class="line">            return 0</span><br><span class="line">        left &#x3D; 0</span><br><span class="line">        right &#x3D; len(rotateArray) - 1</span><br><span class="line">        while left &lt; right:</span><br><span class="line">            if rotateArray[left] &lt; rotateArray[right]:</span><br><span class="line">                return rotateArray[left]</span><br><span class="line"></span><br><span class="line">            mid &#x3D; (left + right) &#x2F;&#x2F; 2</span><br><span class="line">            if rotateArray[mid] &gt; rotateArray[left]:</span><br><span class="line">                left &#x3D; mid + 1</span><br><span class="line">            elif rotateArray[mid] &lt; rotateArray[right]:</span><br><span class="line">                right &#x3D; mid</span><br><span class="line">            else:</span><br><span class="line">                left +&#x3D; 1</span><br><span class="line"></span><br><span class="line">        return rotateArray[left]</span><br></pre></td></tr></table></figure>
+<p><strong>代码测试：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().minNumberInRotateArray([1, 0, 1, 1, 1]))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="JZ18-二叉树的镜像"><a href="#JZ18-二叉树的镜像" class="headerlink" title="JZ18 二叉树的镜像"></a>JZ18 二叉树的镜像</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。<br> 二叉树的镜像定义如下：</p>
+</blockquote>
+<pre><code> 源二叉树
+    8
+   /  \
+  6   10
+ / \  / \
+5  7 9 11
+
+镜像二叉树
+     8
+   /  \
+  10   6
+ / \  / \
+11 9 7  5</code></pre><p><strong>解法思路：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.left &#x3D; None</span><br><span class="line">        self.right &#x3D; None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    # 返回镜像树的根节点</span><br><span class="line">    def Mirror(self, root):</span><br><span class="line">        # write code here</span><br><span class="line">        if root is None:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        root.left, root.right &#x3D; \</span><br><span class="line">            self.Mirror(root.right), self.Mirror(root.left)</span><br><span class="line"></span><br><span class="line">        return root</span><br><span class="line"></span><br><span class="line">    def preOrder(self, root):</span><br><span class="line">        if root is None:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        print(root.val, end&#x3D;&#39; &#39;)</span><br><span class="line">        self.preOrder(root.left)</span><br><span class="line">        self.preOrder(root.right)</span><br></pre></td></tr></table></figure>
+<p><strong>代码测试：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    tree1 &#x3D; TreeNode(8)</span><br><span class="line">    tree1.left &#x3D; TreeNode(6)</span><br><span class="line">    tree1.right &#x3D; TreeNode(10)</span><br><span class="line">    tree1.left.left &#x3D; TreeNode(5)</span><br><span class="line">    tree1.left.right &#x3D; TreeNode(7)</span><br><span class="line">    tree1.right.left &#x3D; TreeNode(9)</span><br><span class="line">    tree1.right.right &#x3D; TreeNode(11)</span><br><span class="line"></span><br><span class="line">    invert_tree &#x3D; Solution().Mirror(tree1)</span><br><span class="line">    print(Solution().preOrder(invert_tree))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 8 10 11 9 6 7 5 None</span><br></pre></td></tr></table></figure>
+<h3 id="JZ23-二叉搜索树的后序遍历"><a href="#JZ23-二叉搜索树的后序遍历" class="headerlink" title="JZ23 二叉搜索树的后序遍历"></a>JZ23 二叉搜索树的后序遍历</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
+</blockquote>
+<p><strong>解法思路：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def VerifySquenceOfBST(self, sequence):</span><br><span class="line">        # write code here</span><br><span class="line">        if len(sequence) &#x3D;&#x3D; 0:</span><br><span class="line">            return False</span><br><span class="line"></span><br><span class="line">        root &#x3D; sequence[-1]</span><br><span class="line">        for index, value in enumerate(sequence):</span><br><span class="line">            if value &gt; root:</span><br><span class="line">                break</span><br><span class="line"></span><br><span class="line">        for value in sequence[index: -1]:</span><br><span class="line">            if value &lt; root:</span><br><span class="line">                return False</span><br><span class="line"></span><br><span class="line">        left &#x3D; True</span><br><span class="line">        if index &gt; 0:</span><br><span class="line">            left &#x3D; self.VerifySquenceOfBST(sequence[:index])</span><br><span class="line"></span><br><span class="line">        right &#x3D; True</span><br><span class="line">        if index &lt; len(sequence) - 1:</span><br><span class="line">            right &#x3D; self.VerifySquenceOfBST(sequence[index: -1])</span><br><span class="line"></span><br><span class="line">        return left and right</span><br></pre></td></tr></table></figure>
+<p><strong>代码测试：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    is_binary_tree &#x3D; [1, 3, 5, 9, 12, 10, 7]</span><br><span class="line">    print(Solution().VerifySquenceOfBST(is_binary_tree))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; True</span><br></pre></td></tr></table></figure>
+
+<h3 id="JZ67-剪绳子"><a href="#JZ67-剪绳子" class="headerlink" title="JZ67 剪绳子"></a>JZ67 剪绳子</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1，m&lt;=n），每段绳子的长度记为 k[1],…,k[m]。请问 k[1]x…xk[m] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+</blockquote>
+<blockquote>
+<p>输入：8<br>输出：18 </p>
+</blockquote>
+<p><strong>解法思路：</strong></p>
+<p><strong>代码测试：</strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>剑指offer 第五天</title>
+    <url>/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%BA%94%E5%A4%A9/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>剑指offer 第四天</title>
     <url>/blog/2020/07/11/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%9B%9B%E5%A4%A9/</url>
     <content><![CDATA[<h3 id="JZ4-重建二叉树"><a href="#JZ4-重建二叉树" class="headerlink" title="JZ4 重建二叉树"></a>JZ4 重建二叉树</h3><p><strong>题目描述：</strong></p>

@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"crisescode.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="JZ49 把字符串转化成整数题目描述：  将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0输入描述：输入一个字符串,包括数字字母符号,可以为空输出描述：如果是合法的数值表达则返回该数字，否则返回0   示例：输入：+21474836471a33输出：21474836470  解法思路：使用了一个很巧妙的方法，用一个字典将字符串”0”-“">
+  <meta name="description" content="JZ6 旋转数组的最小数字题目描述：  把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。  解法思路：这题主要是考察二分查找。二分查找，又叫折半查找。它的前提是线性表中的数据必">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer 第二天">
-<meta property="og:url" content="https://crisescode.github.io/blog/2020/07/07/%E5%89%91%E6%8C%87offer%E7%AC%AC%E4%BA%8C%E5%A4%A9/index.html">
+<meta property="og:title" content="剑指offer 第六天">
+<meta property="og:url" content="https://crisescode.github.io/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%85%AD%E5%A4%A9/index.html">
 <meta property="og:site_name" content="LuckyCrise">
-<meta property="og:description" content="JZ49 把字符串转化成整数题目描述：  将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0输入描述：输入一个字符串,包括数字字母符号,可以为空输出描述：如果是合法的数值表达则返回该数字，否则返回0   示例：输入：+21474836471a33输出：21474836470  解法思路：使用了一个很巧妙的方法，用一个字典将字符串”0”-“">
+<meta property="og:description" content="JZ6 旋转数组的最小数字题目描述：  把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。  解法思路：这题主要是考察二分查找。二分查找，又叫折半查找。它的前提是线性表中的数据必">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-07T14:37:49.000Z">
-<meta property="article:modified_time" content="2020-07-07T15:07:56.532Z">
+<meta property="article:published_time" content="2020-07-13T12:43:55.000Z">
+<meta property="article:modified_time" content="2020-07-13T15:53:58.874Z">
 <meta property="article:author" content="Crise">
-<meta property="article:tag" content="剑指offer">
+<meta property="article:tag" content="Python | Golang | NLP | Web后端">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://crisescode.github.io/blog/2020/07/07/%E5%89%91%E6%8C%87offer%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
+<link rel="canonical" href="https://crisescode.github.io/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%85%AD%E5%A4%A9/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>剑指offer 第二天 | LuckyCrise</title>
+  <title>剑指offer 第六天 | LuckyCrise</title>
   
 
 
@@ -166,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://crisescode.github.io/blog/2020/07/07/%E5%89%91%E6%8C%87offer%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
+    <link itemprop="mainEntityOfPage" href="https://crisescode.github.io/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%85%AD%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/author.jpg">
@@ -179,7 +179,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          剑指offer 第二天
+          剑指offer 第六天
         </h1>
 
         <div class="post-meta">
@@ -191,16 +191,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-07 22:37:49 / 修改时间：23:07:56" itemprop="dateCreated datePublished" datetime="2020-07-07T22:37:49+08:00">2020-07-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">刷题</span></a>
-                </span>
+              <time title="创建时间：2020-07-13 20:43:55 / 修改时间：23:53:58" itemprop="dateCreated datePublished" datetime="2020-07-13T20:43:55+08:00">2020-07-13</time>
             </span>
 
           
@@ -216,7 +207,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>551</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -235,41 +226,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="JZ49-把字符串转化成整数"><a href="#JZ49-把字符串转化成整数" class="headerlink" title="JZ49 把字符串转化成整数"></a>JZ49 把字符串转化成整数</h3><p><strong>题目描述：</strong></p>
+        <h3 id="JZ6-旋转数组的最小数字"><a href="#JZ6-旋转数组的最小数字" class="headerlink" title="JZ6 旋转数组的最小数字"></a>JZ6 旋转数组的最小数字</h3><p><strong>题目描述：</strong></p>
 <blockquote>
-<p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0<br>输入描述：<br>输入一个字符串,包括数字字母符号,可以为空<br>输出描述：<br>如果是合法的数值表达则返回该数字，否则返回0</p>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
 </blockquote>
+<p><strong>解法思路：</strong><br>这题主要是考察二分查找。<strong>二分查找</strong>，又叫折半查找。它的前提是线性表中的数据必须是有序的，线性表必须采用顺序存储。主要思想是：在有序表中，去中间记录作为比较对象，若给定值与中间记录的关键字相等，则查找成功；若给定值小于中间记录的关键字，则在中间记录的左半区继续查找；若给定值大于中间记录的关键字，则在中间记录的右半区继续查找；不断重复上述过程，直至查找成功，或所有查找区域无记录，查找失败为止。</p>
+<p>上面介绍了二分查找的主要思路，而本题难点在于找到中间值与谁进行比较？ 再认真审下题，给定的是非递减排序的数组，也就是“平序”或升序。例如：<code>[1, 2, 3, 3, 3, 5, 6]</code>（“平序”），<code>[1, 2, 3, 4, 5, 6]</code>（升序）。然后再做旋转得到旋转数组<code>[3, 3, 5, 6, 1, 2, 3]</code>，<code>[4, 5, 6, 1, 2, 3]</code>，可以确定的是旋转后的数组<code>nums[0] &gt;= nums[-1]</code>恒成立。</p>
+<p>这样也就得到了<code>nums[mid]</code>与哪个值进行比较了，当然是：</p>
+<ul>
+<li><code>nums[mid] &gt; nums[left]</code> , 这个时候 <code>left = mid + 1</code></li>
+<li><code>nums[mid] &lt; nums[right]</code>, 这个时候 <code>right = mid</code></li>
+<li><code>nums[mid] = nums[right]</code>, 这个时候 <code>left += 1</code></li>
+</ul>
+<p>这里可以一定意义上认为<code>nums[left]</code>与<code>nums[right]</code>近似相等，这样便于理解。</p>
 <blockquote>
-<p>示例：<br>输入：<br>+2147483647<br>1a33<br>输出：<br>2147483647<br>0</p>
+<p>注: 以上<code>nums</code>代表传入的旋转数组，<code>left</code>指数组的第一个数，<code>right</code>指数组末尾的数，<code>mid</code>指数组中间位置的数。</p>
 </blockquote>
-<p><strong>解法思路：</strong><br>使用了一个很巧妙的方法，用一个字典将字符串”0”-“9”与数字0 - 9做一个映射，然后再用数学上计算一个数字的公式得出这个数。比如：<code>123 = (1 * 10 + 2 ) * 10 + 3</code>。需要注意字符串开头的正负号，从而判断得到的数字是整数还是负数。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def StrToInt(self, s):</span><br><span class="line">        # write code here</span><br><span class="line">        if len(s) &#x3D;&#x3D; 0:</span><br><span class="line">            return 0</span><br><span class="line"></span><br><span class="line">        str2num &#x3D; &#123;</span><br><span class="line">            &quot;0&quot;: 0, &quot;1&quot;: 1, &quot;2&quot;: 2, &quot;3&quot;: 3, &quot;4&quot;: 4,</span><br><span class="line">            &quot;5&quot;: 5, &quot;6&quot;: 6, &quot;7&quot;: 7, &quot;8&quot;: 8, &quot;9&quot;: 9,</span><br><span class="line">            &quot;+&quot;: 1, &quot;-&quot;: -1</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sum &#x3D; 0</span><br><span class="line">        sign &#x3D; 1</span><br><span class="line">        for c in s:</span><br><span class="line">            if c in str2num:</span><br><span class="line">                if c &#x3D;&#x3D; &quot;+&quot;:</span><br><span class="line">                    sign &#x3D; str2num[&quot;+&quot;]</span><br><span class="line">                    continue</span><br><span class="line">                if c &#x3D;&#x3D; &quot;-&quot;:</span><br><span class="line">                    sign &#x3D; str2num[&quot;-&quot;]</span><br><span class="line">                    continue</span><br><span class="line">                sum &#x3D; sum * 10 + str2num[c]</span><br><span class="line">            else:</span><br><span class="line">                sum &#x3D; 0</span><br><span class="line">                break</span><br><span class="line"></span><br><span class="line">        return sum * sign</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def minNumberInRotateArray(self, rotateArray):</span><br><span class="line">        # write code here</span><br><span class="line">        if len(rotateArray) &#x3D;&#x3D; 0:</span><br><span class="line">            return 0</span><br><span class="line">        left &#x3D; 0</span><br><span class="line">        right &#x3D; len(rotateArray) - 1</span><br><span class="line">        while left &lt; right:</span><br><span class="line">            if rotateArray[left] &lt; rotateArray[right]:</span><br><span class="line">                return rotateArray[left]</span><br><span class="line"></span><br><span class="line">            mid &#x3D; (left + right) &#x2F;&#x2F; 2</span><br><span class="line">            if rotateArray[mid] &gt; rotateArray[left]:</span><br><span class="line">                left &#x3D; mid + 1</span><br><span class="line">            elif rotateArray[mid] &lt; rotateArray[right]:</span><br><span class="line">                right &#x3D; mid</span><br><span class="line">            else:</span><br><span class="line">                left +&#x3D; 1</span><br><span class="line"></span><br><span class="line">        return rotateArray[left]</span><br></pre></td></tr></table></figure>
 <p><strong>代码测试：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    s &#x3D; &quot;-98210&quot;</span><br><span class="line">    print(Solution().StrToInt(s))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 98210</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().minNumberInRotateArray([1, 0, 1, 1, 1]))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 0</span><br></pre></td></tr></table></figure>
 
-<h3 id="JZ7-斐波那契数列"><a href="#JZ7-斐波那契数列" class="headerlink" title="JZ7 斐波那契数列"></a>JZ7 斐波那契数列</h3><p><strong>题目描述：</strong></p>
+<h3 id="JZ18-二叉树的镜像"><a href="#JZ18-二叉树的镜像" class="headerlink" title="JZ18 二叉树的镜像"></a>JZ18 二叉树的镜像</h3><p><strong>题目描述：</strong></p>
 <blockquote>
-<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0，第1项是1）(n&lt;=39)。</p>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。<br> 二叉树的镜像定义如下：</p>
 </blockquote>
-<p><strong>解法一思路：</strong><br>直接根据数学公式<code>f(n) = f(n - 1) + f(n - 2)</code>，截至条件是当<code>n = 1, f(n) = 1</code>，<code>n = 0, f(0) = 0</code>。利用<strong>递归法</strong>进行求解，这种方法时间复杂度很大，为<code>O(n^2)</code>，空间复杂度为<code>O(1)</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Fibonacci(self, n):</span><br><span class="line">        # write code here</span><br><span class="line">        if n &lt;&#x3D; 1:</span><br><span class="line">            return n</span><br><span class="line">        else:</span><br><span class="line">            return self.Fibonacci(n-1) + self.Fibonacci(n-2)</span><br></pre></td></tr></table></figure>
+<pre><code> 源二叉树
+    8
+   /  \
+  6   10
+ / \  / \
+5  7 9 11
 
-<p><strong>解法二思路：</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution2:</span><br><span class="line">    def Fibonacci(self, n):</span><br><span class="line">        # write code here</span><br><span class="line">        if n &lt;&#x3D; 1:</span><br><span class="line">            return n</span><br><span class="line"></span><br><span class="line">        n1, n2, n3 &#x3D; 0, 1, 0</span><br><span class="line">        for i in range(1, n):</span><br><span class="line">            n3 &#x3D; n1 + n2</span><br><span class="line">            n1 &#x3D; n2</span><br><span class="line">            n2 &#x3D; n3</span><br><span class="line"></span><br><span class="line">        return n3</span><br></pre></td></tr></table></figure>
-<p><strong>解法三思路：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution3:</span><br><span class="line">    def Fibonacci(self, n):</span><br><span class="line">        # write code here</span><br><span class="line">        if n &lt;&#x3D; 1:</span><br><span class="line">            return n</span><br><span class="line"></span><br><span class="line">        sum, one &#x3D; 1, 0</span><br><span class="line">        for i in range(1, n):</span><br><span class="line">            sum &#x3D; sum + one</span><br><span class="line">            one &#x3D; sum - one</span><br><span class="line"></span><br><span class="line">        return sum</span><br></pre></td></tr></table></figure>
-
+镜像二叉树
+     8
+   /  \
+  10   6
+ / \  / \
+11 9 7  5</code></pre><p><strong>解法思路：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.left &#x3D; None</span><br><span class="line">        self.right &#x3D; None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    # 返回镜像树的根节点</span><br><span class="line">    def Mirror(self, root):</span><br><span class="line">        # write code here</span><br><span class="line">        if root is None:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        root.left, root.right &#x3D; \</span><br><span class="line">            self.Mirror(root.right), self.Mirror(root.left)</span><br><span class="line"></span><br><span class="line">        return root</span><br><span class="line"></span><br><span class="line">    def preOrder(self, root):</span><br><span class="line">        if root is None:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        print(root.val, end&#x3D;&#39; &#39;)</span><br><span class="line">        self.preOrder(root.left)</span><br><span class="line">        self.preOrder(root.right)</span><br></pre></td></tr></table></figure>
 <p><strong>代码测试：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().Fibonacci(8))</span><br><span class="line">    print(Solution2().Fibonacci(8))</span><br><span class="line">    print(Solution3().Fibonacci(8))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 21</span><br><span class="line">&gt;&gt;&gt; 21</span><br><span class="line">&gt;&gt;&gt; 21</span><br></pre></td></tr></table></figure>
-<h3 id="JZ48-不用加减乘除做加法"><a href="#JZ48-不用加减乘除做加法" class="headerlink" title="JZ48 不用加减乘除做加法"></a>JZ48 不用加减乘除做加法</h3><p><strong>题目描述：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    tree1 &#x3D; TreeNode(8)</span><br><span class="line">    tree1.left &#x3D; TreeNode(6)</span><br><span class="line">    tree1.right &#x3D; TreeNode(10)</span><br><span class="line">    tree1.left.left &#x3D; TreeNode(5)</span><br><span class="line">    tree1.left.right &#x3D; TreeNode(7)</span><br><span class="line">    tree1.right.left &#x3D; TreeNode(9)</span><br><span class="line">    tree1.right.right &#x3D; TreeNode(11)</span><br><span class="line"></span><br><span class="line">    invert_tree &#x3D; Solution().Mirror(tree1)</span><br><span class="line">    print(Solution().preOrder(invert_tree))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 8 10 11 9 6 7 5 None</span><br></pre></td></tr></table></figure>
+<h3 id="JZ23-二叉搜索树的后序遍历"><a href="#JZ23-二叉搜索树的后序遍历" class="headerlink" title="JZ23 二叉搜索树的后序遍历"></a>JZ23 二叉搜索树的后序遍历</h3><p><strong>题目描述：</strong></p>
 <blockquote>
-<p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。</p>
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
 </blockquote>
 <p><strong>解法思路：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Add(self, num1, num2):</span><br><span class="line">        # write code here</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def VerifySquenceOfBST(self, sequence):</span><br><span class="line">        # write code here</span><br><span class="line">        if len(sequence) &#x3D;&#x3D; 0:</span><br><span class="line">            return False</span><br><span class="line"></span><br><span class="line">        root &#x3D; sequence[-1]</span><br><span class="line">        for index, value in enumerate(sequence):</span><br><span class="line">            if value &gt; root:</span><br><span class="line">                break</span><br><span class="line"></span><br><span class="line">        for value in sequence[index: -1]:</span><br><span class="line">            if value &lt; root:</span><br><span class="line">                return False</span><br><span class="line"></span><br><span class="line">        left &#x3D; True</span><br><span class="line">        if index &gt; 0:</span><br><span class="line">            left &#x3D; self.VerifySquenceOfBST(sequence[:index])</span><br><span class="line"></span><br><span class="line">        right &#x3D; True</span><br><span class="line">        if index &lt; len(sequence) - 1:</span><br><span class="line">            right &#x3D; self.VerifySquenceOfBST(sequence[index: -1])</span><br><span class="line"></span><br><span class="line">        return left and right</span><br></pre></td></tr></table></figure>
 <p><strong>代码测试：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    is_binary_tree &#x3D; [1, 3, 5, 9, 12, 10, 7]</span><br><span class="line">    print(Solution().VerifySquenceOfBST(is_binary_tree))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; True</span><br></pre></td></tr></table></figure>
+
+<h3 id="JZ67-剪绳子"><a href="#JZ67-剪绳子" class="headerlink" title="JZ67 剪绳子"></a>JZ67 剪绳子</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1，m&lt;=n），每段绳子的长度记为 k[1],…,k[m]。请问 k[1]x…xk[m] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+</blockquote>
+<blockquote>
+<p>输入：8<br>输出：18 </p>
+</blockquote>
+<p><strong>解法思路：</strong></p>
+<p><strong>代码测试：</strong></p>
+
     </div>
 
     
@@ -309,7 +325,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://crisescode.github.io/blog/2020/07/07/%E5%89%91%E6%8C%87offer%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="剑指offer 第二天">https://crisescode.github.io/blog/2020/07/07/剑指offer第二天/</a>
+    <a href="https://crisescode.github.io/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E5%85%AD%E5%A4%A9/" title="剑指offer 第六天">https://crisescode.github.io/blog/2020/07/13/剑指offer-第六天/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -319,9 +335,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/blog/tags/%E5%89%91%E6%8C%87offer/" rel="tag"><i class="fa fa-tag"></i> 剑指offer</a>
-          </div>
 
         
 
@@ -329,13 +342,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/2020/07/06/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%80%E5%A4%A9/" rel="prev" title="剑指offer 第一天">
-      <i class="fa fa-chevron-left"></i> 剑指offer 第一天
+    <a href="/blog/2020/07/13/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%BA%94%E5%A4%A9/" rel="prev" title="剑指offer 第五天">
+      <i class="fa fa-chevron-left"></i> 剑指offer 第五天
     </a></div>
-      <div class="post-nav-item">
-    <a href="/blog/2020/07/08/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%89%E5%A4%A9/" rel="next" title="剑指offer 第三天">
-      剑指offer 第三天 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -394,7 +404,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ49-把字符串转化成整数"><span class="nav-number">1.</span> <span class="nav-text">JZ49 把字符串转化成整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ7-斐波那契数列"><span class="nav-number">2.</span> <span class="nav-text">JZ7 斐波那契数列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ48-不用加减乘除做加法"><span class="nav-number">3.</span> <span class="nav-text">JZ48 不用加减乘除做加法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ6-旋转数组的最小数字"><span class="nav-number">1.</span> <span class="nav-text">JZ6 旋转数组的最小数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ18-二叉树的镜像"><span class="nav-number">2.</span> <span class="nav-text">JZ18 二叉树的镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ23-二叉搜索树的后序遍历"><span class="nav-number">3.</span> <span class="nav-text">JZ23 二叉搜索树的后序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ67-剪绳子"><span class="nav-number">4.</span> <span class="nav-text">JZ67 剪绳子</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
