@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"crisescode.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="分享技术，记录生活">
+  <meta name="description" content="JZ64 滑动窗口的最大值题目描述：  给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个：{[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer 第九天">
 <meta property="og:url" content="https://crisescode.github.io/blog/2020/07/25/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B9%9D%E5%A4%A9/index.html">
 <meta property="og:site_name" content="LuckyCrise">
-<meta property="og:description" content="分享技术，记录生活">
+<meta property="og:description" content="JZ64 滑动窗口的最大值题目描述：  给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个：{[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-25T14:05:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T14:06:12.823Z">
+<meta property="article:modified_time" content="2020-07-27T15:32:14.109Z">
 <meta property="article:author" content="Crise">
 <meta property="article:tag" content="剑指offer">
 <meta name="twitter:card" content="summary">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-25 22:05:00 / 修改时间：22:06:12" itemprop="dateCreated datePublished" datetime="2020-07-25T22:05:00+08:00">2020-07-25</time>
+              <time title="创建时间：2020-07-25 22:05:00" itemprop="dateCreated datePublished" datetime="2020-07-25T22:05:00+08:00">2020-07-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-27 23:32:14" itemprop="dateModified" datetime="2020-07-27T23:32:14+08:00">2020-07-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -216,7 +222,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>479</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -235,7 +241,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h3 id="JZ64-滑动窗口的最大值"><a href="#JZ64-滑动窗口的最大值" class="headerlink" title="JZ64 滑动窗口的最大值"></a>JZ64 滑动窗口的最大值</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个：<br>{[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}，<br>{2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+</blockquote>
+<p>这道题其实是昨天最后一道题<a href="http://localhost:4000/blog/2020/07/19/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%83%E5%A4%A9/" target="_blank" rel="noopener"><code>JZ60</code></a>的升级版，其实也就是层次遍历二叉树（BFS）。层次遍历思想可以参见上一道题，只是此题需要结合二叉树的深度<code>depth</code>进行解题。在每次需要打印的地方，当深度<code>depth</code>对2取余，为0则从左到右打印，为1则反转打印。</p>
+<p><strong>解法思路：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def maxInWindows(self, num, size):</span><br><span class="line">        # write code here</span><br><span class="line">        if num is None or size &lt;&#x3D; 0:</span><br><span class="line">            return []</span><br><span class="line"></span><br><span class="line">        max_list &#x3D; []</span><br><span class="line">        for i in range(len(num) - size + 1):</span><br><span class="line">            range_ &#x3D; num[i: i+size]</span><br><span class="line">            max_list.append(max(range_))</span><br><span class="line">        return max_list</span><br></pre></td></tr></table></figure>
+<p><strong>代码测试：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().maxInWindows([2, 3, 4, 2, 6, 2, 5, 1], 2))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; [3, 4, 4, 6, 6, 5, 5]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="JZ40-数组中只出现一次的数字"><a href="#JZ40-数组中只出现一次的数字" class="headerlink" title="JZ40 数组中只出现一次的数字"></a>JZ40 数组中只出现一次的数字</h3><p><strong>题目描述：</strong></p>
+<blockquote>
+<p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p>
+</blockquote>
+<p><strong>解法思路：</strong></p>
+<!--more-->
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    # 返回[a,b] 其中ab是出现一次的两个数字</span><br><span class="line">    def FindNumsAppearOnce(self, array):</span><br><span class="line">        # write code here</span><br><span class="line">        if array is None:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        hash_map &#x3D; &#123;&#125;</span><br><span class="line">        for num in array:</span><br><span class="line">            if num in hash_map:</span><br><span class="line">                hash_map[num] +&#x3D; 1</span><br><span class="line">            else:</span><br><span class="line">                hash_map[num] &#x3D; 1</span><br><span class="line"></span><br><span class="line">        res &#x3D; [num for num in hash_map.keys() if hash_map[num] &#x3D;&#x3D; 1]</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
+<p><strong>代码测试：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().FindNumsAppearOnce([2, 3, 1, 5, 1, 3, 6, 11, 6, 0, 11, 5]))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; [2, 0]</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -360,6 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ64-滑动窗口的最大值"><span class="nav-number">1.</span> <span class="nav-text">JZ64 滑动窗口的最大值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JZ40-数组中只出现一次的数字"><span class="nav-number">2.</span> <span class="nav-text">JZ40 数组中只出现一次的数字</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -469,7 +494,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6 分钟</span>
+    <span title="站点阅读时长">7 分钟</span>
 </div>
 
         
