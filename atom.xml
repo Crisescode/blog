@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://crisescode.github.io/blog/"/>
-  <updated>2020-07-31T13:29:43.330Z</updated>
+  <updated>2020-08-01T03:07:30.541Z</updated>
   <id>https://crisescode.github.io/blog/</id>
   
   <author>
@@ -21,9 +21,16 @@
     <link href="https://crisescode.github.io/blog/2020/07/31/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83%E4%B9%8BPyTorch/"/>
     <id>https://crisescode.github.io/blog/2020/07/31/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83%E4%B9%8BPyTorch/</id>
     <published>2020-07-31T13:09:48.000Z</published>
-    <updated>2020-07-31T13:29:43.330Z</updated>
+    <updated>2020-08-01T03:07:30.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于近期来自客户需求，需要部门开发的AI平台支持上 PyTorch 框架的分布式训练，因此自己也是花了大概一周的时间，仔细研究了下 PyTorch 的分布式训练，中间也遇到了不少问题，好在通过查阅相关资料大都解决了，昨天也到客户那已经部署成功了。现将关于 PyTorch 分布式训练知识总结一下，方便大家或自己以后查阅，以下内容如有总结不到位的地方，请大家不吝赐教~</p><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于近期来自客户需求，需要部门开发的AI平台支持上 PyTorch 框架的分布式训练，因此自己也是花了大概一周的时间，仔细研究了下 PyTorch 的分布式训练，中间也遇到了不少问题，好在通过查阅相关资料大都解决了，昨天也到客户那已经部署成功了。现将关于 PyTorch 分
+      
     
     </summary>
     
