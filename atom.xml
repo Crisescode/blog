@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://crisescode.github.io/blog/"/>
-  <updated>2020-08-01T03:07:30.541Z</updated>
+  <updated>2020-08-08T06:57:39.622Z</updated>
   <id>https://crisescode.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[NLP] 文本摘要之PGN指针生成网络</title>
+    <link href="https://crisescode.github.io/blog/2020/08/08/NLP-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E4%B9%8BPGN%E6%8C%87%E9%92%88%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C/"/>
+    <id>https://crisescode.github.io/blog/2020/08/08/NLP-%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E4%B9%8BPGN%E6%8C%87%E9%92%88%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C/</id>
+    <published>2020-08-08T06:48:20.000Z</published>
+    <updated>2020-08-08T06:57:39.622Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="NLP" scheme="https://Crisescode.github.io/blog/categories/NLP/"/>
+    
+      <category term="文本生成" scheme="https://Crisescode.github.io/blog/categories/NLP/%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/"/>
+    
+    
+      <category term="PGN" scheme="https://Crisescode.github.io/blog/tags/PGN/"/>
+    
+  </entry>
   
   <entry>
     <title>分布式训练之PyTorch</title>
@@ -372,13 +393,19 @@
     <link href="https://crisescode.github.io/blog/2020/06/27/NLP%EF%BC%881%EF%BC%89%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
     <id>https://crisescode.github.io/blog/2020/06/27/NLP%EF%BC%881%EF%BC%89%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
     <published>2020-06-27T07:17:47.000Z</published>
-    <updated>2020-06-27T07:17:47.846Z</updated>
+    <updated>2020-08-08T06:58:03.790Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="NLP" scheme="https://Crisescode.github.io/blog/categories/NLP/"/>
+    
+      <category term="文本分类" scheme="https://Crisescode.github.io/blog/categories/NLP/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/"/>
+    
+    
+      <category term="文本分类" scheme="https://Crisescode.github.io/blog/tags/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/"/>
     
   </entry>
   
