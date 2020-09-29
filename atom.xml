@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://crisescode.github.io/blog/"/>
-  <updated>2020-08-08T06:57:39.622Z</updated>
+  <updated>2020-09-29T07:53:18.941Z</updated>
   <id>https://crisescode.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,73 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[AI] 模型部署实践（2）Tensorflow Serving部署方式</title>
+    <link href="https://crisescode.github.io/blog/2020/09/29/AI-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5%EF%BC%882%EF%BC%89Tensorflow-Serving%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F/"/>
+    <id>https://crisescode.github.io/blog/2020/09/29/AI-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5%EF%BC%882%EF%BC%89Tensorflow-Serving%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F/</id>
+    <published>2020-09-29T07:46:26.000Z</published>
+    <updated>2020-09-29T07:53:18.941Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="AI" scheme="https://Crisescode.github.io/blog/categories/AI/"/>
+    
+      <category term="模型部署" scheme="https://Crisescode.github.io/blog/categories/AI/%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"/>
+    
+    
+      <category term="TF Serving" scheme="https://Crisescode.github.io/blog/tags/TF-Serving/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Kubernetes] 基于kubeadm搭建一个完整的Kubernetes集群</title>
+    <link href="https://crisescode.github.io/blog/2020/09/29/Kubernetes-%E5%9F%BA%E4%BA%8Ekubeadm%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84Kubernetes%E9%9B%86%E7%BE%A4/"/>
+    <id>https://crisescode.github.io/blog/2020/09/29/Kubernetes-%E5%9F%BA%E4%BA%8Ekubeadm%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84Kubernetes%E9%9B%86%E7%BE%A4/</id>
+    <published>2020-09-29T01:42:25.000Z</published>
+    <updated>2020-09-29T07:47:36.360Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、Overview"><a href="#一、Overview" class="headerlink" title="一、Overview"></a>一、Overview</h2><h2 id="二、Kubeadm-到底是什么？"><a href="#二、Kubeadm-到底是什么？" class="headerlink" title="二、Kubeadm 到底是什么？"></a>二、Kubeadm 到底是什么？</h2><h2 id="三、环境介绍"><a href="#三、环境介绍" class="headerlink" title="三、环境介绍"></a>三、环境介绍</h2><a id="more"></a><h2 id="四、安装准备"><a href="#四、安装准备" class="headerlink" title="四、安装准备"></a>四、安装准备</h2><h2 id="五、安装-Kubeadm-以及-Docker"><a href="#五、安装-Kubeadm-以及-Docker" class="headerlink" title="五、安装 Kubeadm 以及 Docker"></a>五、安装 Kubeadm 以及 Docker</h2><p>上述介绍过 kubeadm 的基础用法，接下来我将会介绍基于 Centos 8 安装 Kubernetes 组件以及 Docker。</p><h4 id="5-1-配置安装源"><a href="#5-1-配置安装源" class="headerlink" title="5.1 配置安装源"></a>5.1 配置安装源</h4><ul><li>配置<code>docker</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;docker-ce.repo</span><br></pre></td></tr></table></figure></li><li>配置<code>kubernetes</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cat &gt; &#x2F;etc&#x2F;yum.repos.d&#x2F;kubernetes.repo &lt;&lt; EOF</span><br><span class="line">[kubernetes]</span><br><span class="line">name&#x3D;Kubernetes</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;repos&#x2F;kubernetes-el7-x86_64</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br><span class="line">repo_gpgcheck&#x3D;0</span><br><span class="line">gpgkey&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;yum-key.gpg https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;rpm-package-key.gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li><li>本地缓存<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dnf makecache</span><br></pre></td></tr></table></figure></li></ul><h4 id="5-2-安装-Kubeadm-以及-docker"><a href="#5-2-安装-Kubeadm-以及-docker" class="headerlink" title="5.2 安装 Kubeadm 以及 docker"></a>5.2 安装 Kubeadm 以及 docker</h4><ul><li>执行以下命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ dnf -y install docker-ce</span><br><span class="line">$ systemctl enable docker</span><br><span class="line">$ systemctl start docker</span><br><span class="line">$ dnf install -y kubelet-1.18.0 kubeadm-1.18.0 kubectl-1.18.0</span><br></pre></td></tr></table></figure></li></ul><p>这里安装了 Docker 公司发布的最新的 Docker CE（社区版），Kubernetes 相关的组件安装的 1.18.0 版本，基本是目前为止最新的版本了。</p><h2 id="六、部署-Kubernetes-的-Master-节点"><a href="#六、部署-Kubernetes-的-Master-节点" class="headerlink" title="六、部署 Kubernetes 的 Master 节点"></a>六、部署 Kubernetes 的 Master 节点</h2><p>利用 kubeadm 可以很简单的来初始化 kubernetes 集群的 master 节点，执行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">kubeadm init \</span><br><span class="line">  --apiserver-advertise-address&#x3D;192.168.0.2 \</span><br><span class="line">  --kubernetes-version v1.18.0 \</span><br><span class="line">  --service-cidr&#x3D;10.1.0.0&#x2F;16 \</span><br><span class="line">  --pod-network-cidr&#x3D;10.244.0.0&#x2F;16</span><br><span class="line">  </span><br><span class="line"> If you can&#39;t access foreign websites:</span><br><span class="line">  kubeadm init \</span><br><span class="line">  --apiserver-advertise-address&#x3D;192.168.0.2 \</span><br><span class="line">  --image-repository registry.aliyuncs.com&#x2F;google_containers \</span><br><span class="line">  --kubernetes-version v1.18.0 \</span><br><span class="line">  --service-cidr&#x3D;10.1.0.0&#x2F;16 \</span><br><span class="line">  --pod-network-cidr&#x3D;10.244.0.0&#x2F;16</span><br></pre></td></tr></table></figure><p>上述命令行参数解释：</p><ul><li><code>--apiserver-advertise-address</code>：可用于为控制平面节点的 API server 设置广播地址，</li></ul><h2 id="七、部署网络插件"><a href="#七、部署网络插件" class="headerlink" title="七、部署网络插件"></a>七、部署网络插件</h2><p>在 Kubernetes 项目“一切皆容器”的设计理念指导下，部署网络插件也是通过启动<code>pod</code>的形式来配置网络，其中有两种网络插件可供部署：</p><ul><li>部署 flannel 网络插件（详细介绍后面会在开一篇博文）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;coreos&#x2F;flannel&#x2F;a70459be0084506e4ec919aa1c114638878db11b&#x2F;Documentation&#x2F;kube-flannel.yml</span><br><span class="line">update:  https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;coreos&#x2F;flannel&#x2F;v0.12.0&#x2F;Documentation&#x2F;kube-flannel.yml</span><br></pre></td></tr></table></figure></li><li>部署 calico 网络插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f https:&#x2F;&#x2F;docs.projectcalico.org&#x2F;v3.14&#x2F;manifests&#x2F;calico.yaml</span><br></pre></td></tr></table></figure>上述两个网络插件只需部署一个即可，部署成功与否可通过查看对应 pod 的运行状态即可：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods -n kube-system</span><br><span class="line">NAME                                       READY   STATUS    RESTARTS   AGE</span><br><span class="line">calico-kube-controllers-65f8bc95db-ngv7v   1&#x2F;1     Running   0          3d19h</span><br><span class="line">calico-node-9sr5c                          1&#x2F;1     Running   0          3d19h</span><br><span class="line">calico-node-jtt5w                          1&#x2F;1     Running   0          3d19h</span><br><span class="line">coredns-7ff77c879f-v645l                   1&#x2F;1     Running   0          3d19h</span><br><span class="line">coredns-7ff77c879f-vdrcf                   1&#x2F;1     Running   0          3d19h</span><br><span class="line">etcd-master                                1&#x2F;1     Running   1          3d20h</span><br><span class="line">kube-apiserver-master                      1&#x2F;1     Running   1          3d20h</span><br><span class="line">kube-controller-manager-master             1&#x2F;1     Running   1          3d20h</span><br><span class="line">kube-proxy-sbxzb                           1&#x2F;1     Running   0          3d19h</span><br><span class="line">kube-proxy-xfw7t                           1&#x2F;1     Running   0          3d19h</span><br><span class="line">kube-scheduler-master                      1&#x2F;1     Running   1          3d20h</span><br></pre></td></tr></table></figure></li></ul><p>可以看到，所有的系统 Pod 都成功启动了，而刚刚部署的 calico 网络插件则在 kube-system 下面新建了一个名叫 calico-kube-controllers-65f8bc95db-ngv7v 的 Pod，一般来说，这些 Pod 就是容器网络插件在每个节点上的控制组件。</p><p>Kubernetes 支持容器网络插件，使用的是一个名叫 CNI 的通用接口，它也是当前容器网络的事实标准，市面上的所有容器网络开源项目都可以通过 CNI 接入 Kubernetes，比如 Flannel、Calico、Canal、Romana 等等，它们的部署方式也都是类似的“一键部署”。关于这些开源项目的实现细节和差异，后续会有相关的博文进行详细讲解。</p><p>至此，Kubernetes 的 Master 节点就部署完成了。如果你只需要一个单节点的 Kubernetes，现在你就可以使用了。不过，在默认情况下，Kubernetes 的 Master 节点是不能运行用户 Pod 的，所以还需要额外做一个小操作。在本篇的最后部分，我会介绍到它。</p><h2 id="八、部署-Kubernetes-的计算节点"><a href="#八、部署-Kubernetes-的计算节点" class="headerlink" title="八、部署 Kubernetes 的计算节点"></a>八、部署 Kubernetes 的计算节点</h2><p>Kubernetes 的 计算节点跟 Master 节点几乎是相同的，它们运行着的都是一个 kubelet 组件。唯一的区别在于，在 kubeadm init 的过程中，kubelet 启动后，Master 节点上还会自动运行 kube-apiserver、kube-scheduler、kube-controller-manger 这三个系统 Pod。</p><p>##</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、Overview&quot;&gt;&lt;a href=&quot;#一、Overview&quot; class=&quot;headerlink&quot; title=&quot;一、Overview&quot;&gt;&lt;/a&gt;一、Overview&lt;/h2&gt;&lt;h2 id=&quot;二、Kubeadm-到底是什么？&quot;&gt;&lt;a href=&quot;#二、Kubeadm-到底是什么？&quot; class=&quot;headerlink&quot; title=&quot;二、Kubeadm 到底是什么？&quot;&gt;&lt;/a&gt;二、Kubeadm 到底是什么？&lt;/h2&gt;&lt;h2 id=&quot;三、环境介绍&quot;&gt;&lt;a href=&quot;#三、环境介绍&quot; class=&quot;headerlink&quot; title=&quot;三、环境介绍&quot;&gt;&lt;/a&gt;三、环境介绍&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="Kubernetes" scheme="https://Crisescode.github.io/blog/categories/Kubernetes/"/>
+    
+    
+      <category term="kubeadm" scheme="https://Crisescode.github.io/blog/tags/kubeadm/"/>
+    
+      <category term="k8s集群" scheme="https://Crisescode.github.io/blog/tags/k8s%E9%9B%86%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AI] 模型部署实践（1）Gunicorn + Falcon + Model</title>
+    <link href="https://crisescode.github.io/blog/2020/08/31/NLP-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5%EF%BC%881%EF%BC%89Gunicorn-Falcon-Model/"/>
+    <id>https://crisescode.github.io/blog/2020/08/31/NLP-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5%EF%BC%881%EF%BC%89Gunicorn-Falcon-Model/</id>
+    <published>2020-08-31T15:05:49.000Z</published>
+    <updated>2020-09-29T07:53:12.327Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="AI" scheme="https://Crisescode.github.io/blog/categories/AI/"/>
+    
+      <category term="模型部署" scheme="https://Crisescode.github.io/blog/categories/AI/%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"/>
+    
+    
+      <category term="HTTP 部署" scheme="https://Crisescode.github.io/blog/tags/HTTP-%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>[NLP] 文本摘要之PGN指针生成网络</title>
@@ -462,7 +529,7 @@
     <link href="https://crisescode.github.io/blog/2020/06/19/Python%E4%B9%8B%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/"/>
     <id>https://crisescode.github.io/blog/2020/06/19/Python%E4%B9%8B%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/</id>
     <published>2020-06-19T04:52:51.000Z</published>
-    <updated>2020-07-31T13:32:08.000Z</updated>
+    <updated>2020-09-29T02:32:16.711Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一、编程方式介绍"><a href="#一、编程方式介绍" class="headerlink" title="一、编程方式介绍"></a>一、编程方式介绍</h2><p>一般编程语言支持通过以下几种方式来解决具体的问题：</p><ul><li>大多数的编程语言都是<strong>过程式</strong>的，也就是我们常说的面向过程的编程方式。而所谓程序是指令的列表，告诉计算机如何处理程序的输入。C、Pascal甚至Unix shell都是过程式语言。</li><li>然后有一些编程语言是<strong>声明式</strong>的，主要是你需要编写一个用来描述待解决问题的说明，然后这个语言的具体实现会指明怎样高效的进行计算并解决问题。SQL 可能是你最熟悉的声明式语言了。 一个 SQL 查询语句描述了你想要检索的数据集，并且 SQL 引擎会决定是扫描整张表还是使用索引，应该先执行哪些子句等等。</li><li><strong>面向对象</strong>编程语言会操作一组对象。其中对象拥有内部状态，并能够以某种方式支持请求和修改这个内部状态的方法。Smalltalk 和 Java 都是面向对象的语言。C++ 和 Python 支持面向对象编程，但并不强制使用面向对象特性。</li><li>而<strong>函数式</strong>编程则是将一个问题分解成一系列函数。理想情况下，函数只接受输入并产生输出，没有任何内部状态会影响为给定输入产生的输出。众所周知的函数式语言包括ML家族(标准ML、OCaml和其他变体)和Haskell。</li></ul><a id="more"></a><p>一般语言设计者在设计语言时，会选择侧重强调一种特定的编程方式，但这会让以不同方式来编写程序变得困难。因此有些语言就被设计成多范式语言，用以支持以上几种不同的编程方式。其中<strong>Lisp，C++ 和 Python 都是多范式语言；使用这些语言，你可以编写主要为过程式，面向对象或者函数式的程序和函数库。</strong>在大型程序中，不同的部分可能会采用不同的方式编写；比如 GUI 可能是面向对象的而处理逻辑则是过程式或者函数式。</p><p>这篇文章主要是来讲解函数式编程，因此接下来主要围绕函数式编程进行展开。</p><h2 id="二、函数式编程"><a href="#二、函数式编程" class="headerlink" title="二、函数式编程"></a>二、函数式编程</h2><h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><p>函数式编程：即为给定输入，输入会流经一系列函数，每个函数接收输入并输出结果。并且这个过程，在每个函数内部并不会修改全局变量或者有其他副作用。函数式编程允许把函数本身作为参数传入另一个函数，还允许返回一个函数。</p><h3 id="2-2-特点"><a href="#2-2-特点" class="headerlink" title="2.2 特点"></a>2.2 特点</h3><p>函数式风格有其理论和实践上的优点：</p><ul><li>形式证明</li><li>模块化</li><li>组合性</li><li>易于调试和测试</li></ul><h2 id="三、函数式编程实践"><a href="#三、函数式编程实践" class="headerlink" title="三、函数式编程实践"></a>三、函数式编程实践</h2><h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3>]]></content>
     
@@ -485,21 +552,6 @@
       <category term="函数式编程" scheme="https://Crisescode.github.io/blog/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     
       <category term="高级语法" scheme="https://Crisescode.github.io/blog/tags/%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>My first post</title>
-    <link href="https://crisescode.github.io/blog/2020/06/18/My-first-post/"/>
-    <id>https://crisescode.github.io/blog/2020/06/18/My-first-post/</id>
-    <published>2020-06-18T06:01:38.000Z</published>
-    <updated>2020-06-18T06:01:38.066Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
     
   </entry>
   
