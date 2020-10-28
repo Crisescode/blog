@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[LeetCode] 数据结构之树</title>
+    <url>/blog/2020/10/18/LeetCode-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%A0%91/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>刷题</category>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[AI] 模型部署实践（2）Tensorflow Serving 部署方式</title>
     <url>/blog/2020/09/29/AI-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5%EF%BC%882%EF%BC%89Tensorflow-Serving%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[]]></content>
@@ -15,8 +27,46 @@
   <entry>
     <title>[Kubernetes] 基于kubeadm搭建一个完整的Kubernetes集群</title>
     <url>/blog/2020/09/29/Kubernetes-%E5%9F%BA%E4%BA%8Ekubeadm%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84Kubernetes%E9%9B%86%E7%BE%A4/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h2 id="Kubeadm-到底是什么？"><a href="#Kubeadm-到底是什么？" class="headerlink" title="Kubeadm 到底是什么？"></a>Kubeadm 到底是什么？</h2><h2 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h2><a id="more"></a>
-<h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><h2 id="安装-Kubeadm-以及-Docker"><a href="#安装-Kubeadm-以及-Docker" class="headerlink" title="安装 Kubeadm 以及 Docker"></a>安装 Kubeadm 以及 Docker</h2><p>上述介绍过 kubeadm 的基础用法，接下来我将会介绍基于 Centos 8 安装 Kubernetes 组件以及 Docker。</p>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Kubernetes 是一个可移植的、可扩展的开源平台，用于管理容器化的工作负载和服务，可促进声明式配置和自动化。Kubernetes 拥有一个庞大且快速增长的生态系统。Kubernetes 是 Google 于 2014 年 6 月基于其内部使用的 Borg 系统开源出来的容器编排调度引擎，Google 将其作为初始和核心项目贡献给 CNCF（云原生计算基金会），近年来逐渐发展出了云原生生态。</p>
+<p>Kubernetes 的目标不仅仅是一个编排系统，而是提供一个规范用以描述集群的架构，定义服务的最终状态，使系统自动地达到和维持该状态。Kubernetes 作为云原生应用的基石，相当于一个云操作系统，其重要性不言而喻。</p>
+<h3 id="为什么需要-Kubernetes，它能做什么"><a href="#为什么需要-Kubernetes，它能做什么" class="headerlink" title="为什么需要 Kubernetes，它能做什么?"></a>为什么需要 Kubernetes，它能做什么?</h3><p>容器是打包和运行应用程序的好方式。在生产环境中，您需要管理运行应用程序的容器，并确保不会停机。例如，如果一个容器发生故障，则需要启动另一个容器。如果系统处理此行为，会不会更容易？</p>
+<p>这就是 Kubernetes 的救援方法！Kubernetes 为您提供了一个可弹性运行分布式系统的框架。Kubernetes 会满足您的扩展要求、故障转移、部署模式等。例如，Kubernetes 可以轻松管理系统的 Canary 部署。</p>
+<p>Kubernetes 能够提供以下一些功能：</p>
+<ul>
+<li>服务发现和负载均衡<br>Kubernetes 可以使用 DNS 名称或自己的 IP 地址公开容器，如果到容器的流量很大，    Kubernetes 可以负载均衡并分配网络流量，从而使部署稳定。</li>
+<li>存储编排<br>Kubernetes 允许您自动挂载您选择的存储系统，例如本地存储、公共云提供商等。</li>
+<li>自动部署和回滚<br>您可以使用 Kubernetes 描述已部署容器的所需状态，它可以以受控的速率将实际状态更改为所需状态。例如，您可以自动化 Kubernetes 来为您的部署创建新容器，删除现有容器并将它们的所有资源用于新容器。</li>
+<li>自动二进制打包<br>Kubernetes 允许您指定每个容器所需 CPU 和内存（RAM）。当容器指定了资源请求时，Kubernetes 可以做出更好的决策来管理容器的资源。</li>
+<li>自我修复<br>Kubernetes 重新启动失败的容器、替换容器、杀死不响应用户定义的运行状况检查的容器，并且在准备好服务之前不将其通告给客户端。</li>
+<li>密钥与配置管理<br>Kubernetes 允许您存储和管理敏感信息，例如密码、OAuth 令牌和 ssh 密钥。您可以在不重建容器镜像的情况下部署和更新密钥和应用程序配置，也无需在堆栈配置中暴露密钥。</li>
+</ul>
+<p>因此综上，我们需要好好学习 Kubernetes 这个强大的云操作系统，增强自身的竞争力。工欲善其事，必先利其器，本篇也是 Kubernetes 系列的第一篇博文，讲述如何利用 Kubeadm 这个工具来搭建一套供自己学习的 Kubernetes 集群。</p>
+<h2 id="Kubeadm-到底是什么？"><a href="#Kubeadm-到底是什么？" class="headerlink" title="Kubeadm 到底是什么？"></a>Kubeadm 到底是什么？</h2><p>Kubeadm 能够用以创建一个符合最佳实践的最小化 Kubernetes 集群。事实上，你可以使用 kubeadm 配置一个通过 Kubernetes 一致性测试的集群。 kubeadm 还支持其他集群生命周期功能， 例如：启动引导令牌和集群升级。</p>
+<p>kubeadm 工具很棒，如果你需要：</p>
+<ul>
+<li>一个尝试 Kubernetes 的简单方法。</li>
+<li>一个现有用户可以自动设置集群并测试其应用程序的途径。</li>
+<li>其他具有更大范围的生态系统和/或安装工具中的构建模块。</li>
+</ul>
+<p>你可以在各种机器上安装和使用 kubeadm：笔记本电脑， 一组云服务器，Raspberry Pi 等。无论是部署到云还是本地，你都可以将 kubeadm 集成到预配置系统中，例如 Ansible 或 Terraform。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>一台或多台运行着下列系统的机器，去阿里云申请或者自己物理机用 VMvare 新建都行：<ul>
+<li>Ubuntu 16.04+</li>
+<li>Debian 9+</li>
+<li>CentOS 7</li>
+<li>Red Hat Enterprise Linux (RHEL) 7</li>
+<li>Fedora 25+</li>
+<li>HypriotOS v1.0.1+</li>
+<li>Container Linux (测试 1800.6.0 版本)</li>
+</ul>
+</li>
+<li>单机可用资源建议 2 核 CPU、8 GB 内存或以上，再小的话问题也不大，但是能调度的 Pod 数量就比较有限了</li>
+<li>每台机器能够访问外网，因为需要拉取镜像</li>
+<li>集群中所有计算机之间具有完全的网络连接<a id="more"></a>
+
+</li>
+</ul>
+<h2 id="安装-Kubeadm-以及-Docker"><a href="#安装-Kubeadm-以及-Docker" class="headerlink" title="安装 Kubeadm 以及 Docker"></a>安装 Kubeadm 以及 Docker</h2><p>上述介绍过 kubeadm 的基础用法，接下来我将会介绍基于 Centos 8 安装 Kubernetes 组件以及 Docker。</p>
 <h3 id="配置安装源"><a href="#配置安装源" class="headerlink" title="配置安装源"></a>配置安装源</h3><ul>
 <li>配置<code>docker</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo -O &#x2F;etc&#x2F;yum.repos.d&#x2F;docker-ce.repo</span><br></pre></td></tr></table></figure></li>
 <li>配置<code>kubernetes</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cat &gt; &#x2F;etc&#x2F;yum.repos.d&#x2F;kubernetes.repo &lt;&lt; EOF</span><br><span class="line">[kubernetes]</span><br><span class="line">name&#x3D;Kubernetes</span><br><span class="line">baseurl&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;repos&#x2F;kubernetes-el7-x86_64</span><br><span class="line">enabled&#x3D;1</span><br><span class="line">gpgcheck&#x3D;0</span><br><span class="line">repo_gpgcheck&#x3D;0</span><br><span class="line">gpgkey&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;yum-key.gpg https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kubernetes&#x2F;yum&#x2F;doc&#x2F;rpm-package-key.gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li>
@@ -50,7 +100,17 @@
 <h2 id="部署-Kubernetes-的计算节点"><a href="#部署-Kubernetes-的计算节点" class="headerlink" title="部署 Kubernetes 的计算节点"></a>部署 Kubernetes 的计算节点</h2><p>Kubernetes 的 计算节点跟 Master 节点几乎是相同的，它们运行着的都是一个 kubelet 组件。唯一的区别在于，在 kubeadm init 的过程中，kubelet 启动后，Master 节点上还会自动运行 kube-apiserver、kube-scheduler、kube-controller-manger 这三个系统 Pod。<br>执行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ kubeadm join 192.168.56.12:6443 --token japatq.5vib0jhpgmeeqsb2 \</span><br><span class="line">    --discovery-token-ca-cert-hash sha256:c08f2729dbe9e2b1ce9f44e6d3159c493cc686b2e93dc252f7658cb26b87d726</span><br></pre></td></tr></table></figure>
 <p>用以加入<code>192.168.56.12</code>这个 IP 的计算节点到集群中，以上<code>Token</code>可用<code>kubeclt token list</code>得到。</p>
-<p>##</p>
+<p>通过执行以上步骤便可以搭建好一个网络完整的 Kubernetes 集群。当然，也可以继续往集群中添加其他的插件，比如部署 Dashboard 可视化插件，部署容器存储插件等等。这个就因人而异了，留给大家自由发挥了…</p>
+<h2 id="测试集群"><a href="#测试集群" class="headerlink" title="测试集群"></a>测试集群</h2><ul>
+<li>列出集群的节点<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@master ~]# kubectl get nodes</span><br><span class="line">NAME     STATUS   ROLES    AGE   VERSION</span><br><span class="line">master   Ready    master   33d   v1.18.0</span><br><span class="line">node     Ready    &lt;none&gt;   33d   v1.18.0</span><br></pre></td></tr></table></figure></li>
+<li>列出系统的<code>pod</code>资源<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@master ~]# kubectl get pod -n kube-system</span><br><span class="line">NAME                                       READY   STATUS    RESTARTS   AGE</span><br><span class="line">calico-kube-controllers-65f8bc95db-ngv7v   1&#x2F;1     Running   0          33d</span><br><span class="line">calico-node-9sr5c                          1&#x2F;1     Running   0          33d</span><br><span class="line">calico-node-jtt5w                          1&#x2F;1     Running   0          33d</span><br><span class="line">coredns-7ff77c879f-v645l                   1&#x2F;1     Running   0          33d</span><br><span class="line">coredns-7ff77c879f-vdrcf                   1&#x2F;1     Running   0          33d</span><br><span class="line">etcd-master                                1&#x2F;1     Running   1          33d</span><br><span class="line">kube-apiserver-master                      1&#x2F;1     Running   1          33d</span><br><span class="line">kube-controller-manager-master             1&#x2F;1     Running   1          33d</span><br><span class="line">kube-proxy-sbxzb                           1&#x2F;1     Running   0          33d</span><br><span class="line">kube-proxy-xfw7t                           1&#x2F;1     Running   0          33d</span><br><span class="line">kube-scheduler-master                      1&#x2F;1     Running   1          33d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/" target="_blank" rel="noopener">使用 kubeadm 创建集群</a></li>
+<li><a href="https://kubernetes.io/zh/docs/concepts/overview/" target="_blank" rel="noopener">Kubernetes概述</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Kubernetes</category>
