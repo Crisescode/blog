@@ -367,7 +367,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-28 22:18:25" itemprop="dateModified" datetime="2020-10-28T22:18:25+08:00">2020-10-28</time>
+                <time title="修改时间：2020-10-28 22:21:50" itemprop="dateModified" datetime="2020-10-28T22:21:50+08:00">2020-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -409,37 +409,6 @@
 <h3 id="为什么需要-Kubernetes，它能做什么"><a href="#为什么需要-Kubernetes，它能做什么" class="headerlink" title="为什么需要 Kubernetes，它能做什么?"></a>为什么需要 Kubernetes，它能做什么?</h3><p>容器是打包和运行应用程序的好方式。在生产环境中，您需要管理运行应用程序的容器，并确保不会停机。例如，如果一个容器发生故障，则需要启动另一个容器。如果系统处理此行为，会不会更容易？</p>
 <p>这就是 Kubernetes 的救援方法！Kubernetes 为您提供了一个可弹性运行分布式系统的框架。Kubernetes 会满足您的扩展要求、故障转移、部署模式等。例如，Kubernetes 可以轻松管理系统的 Canary 部署。</p>
 <p>Kubernetes 能够提供以下一些功能：</p>
-<ul>
-<li>服务发现和负载均衡<br>Kubernetes 可以使用 DNS 名称或自己的 IP 地址公开容器，如果到容器的流量很大，    Kubernetes 可以负载均衡并分配网络流量，从而使部署稳定。</li>
-<li>存储编排<br>Kubernetes 允许您自动挂载您选择的存储系统，例如本地存储、公共云提供商等。</li>
-<li>自动部署和回滚<br>您可以使用 Kubernetes 描述已部署容器的所需状态，它可以以受控的速率将实际状态更改为所需状态。例如，您可以自动化 Kubernetes 来为您的部署创建新容器，删除现有容器并将它们的所有资源用于新容器。</li>
-<li>自动二进制打包<br>Kubernetes 允许您指定每个容器所需 CPU 和内存（RAM）。当容器指定了资源请求时，Kubernetes 可以做出更好的决策来管理容器的资源。</li>
-<li>自我修复<br>Kubernetes 重新启动失败的容器、替换容器、杀死不响应用户定义的运行状况检查的容器，并且在准备好服务之前不将其通告给客户端。</li>
-<li>密钥与配置管理<br>Kubernetes 允许您存储和管理敏感信息，例如密码、OAuth 令牌和 ssh 密钥。您可以在不重建容器镜像的情况下部署和更新密钥和应用程序配置，也无需在堆栈配置中暴露密钥。</li>
-</ul>
-<p>因此综上，我们需要好好学习 Kubernetes 这个强大的云操作系统，增强自身的竞争力。工欲善其事，必先利其器，本篇也是 Kubernetes 系列的第一篇博文，讲述如何利用 Kubeadm 这个工具来搭建一套供自己学习的 Kubernetes 集群。</p>
-<h2 id="Kubeadm-到底是什么？"><a href="#Kubeadm-到底是什么？" class="headerlink" title="Kubeadm 到底是什么？"></a>Kubeadm 到底是什么？</h2><p>Kubeadm 能够用以创建一个符合最佳实践的最小化 Kubernetes 集群。事实上，你可以使用 kubeadm 配置一个通过 Kubernetes 一致性测试的集群。 kubeadm 还支持其他集群生命周期功能， 例如：启动引导令牌和集群升级。</p>
-<p>kubeadm 工具很棒，如果你需要：</p>
-<ul>
-<li>一个尝试 Kubernetes 的简单方法。</li>
-<li>一个现有用户可以自动设置集群并测试其应用程序的途径。</li>
-<li>其他具有更大范围的生态系统和/或安装工具中的构建模块。</li>
-</ul>
-<p>你可以在各种机器上安装和使用 kubeadm：笔记本电脑， 一组云服务器，Raspberry Pi 等。无论是部署到云还是本地，你都可以将 kubeadm 集成到预配置系统中，例如 Ansible 或 Terraform。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>一台或多台运行着下列系统的机器，去阿里云申请或者自己物理机用 VMvare 新建都行：<ul>
-<li>Ubuntu 16.04+</li>
-<li>Debian 9+</li>
-<li>CentOS 7</li>
-<li>Red Hat Enterprise Linux (RHEL) 7</li>
-<li>Fedora 25+</li>
-<li>HypriotOS v1.0.1+</li>
-<li>Container Linux (测试 1800.6.0 版本)</li>
-</ul>
-</li>
-<li>单机可用资源建议 2 核 CPU、8 GB 内存或以上，再小的话问题也不大，但是能调度的 Pod 数量就比较有限了</li>
-<li>每台机器能够访问外网，因为需要拉取镜像</li>
-<li>集群中所有计算机之间具有完全的网络连接
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2020/09/29/Kubernetes-%E5%9F%BA%E4%BA%8Ekubeadm%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84Kubernetes%E9%9B%86%E7%BE%A4/#more" rel="contents">
