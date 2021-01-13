@@ -211,7 +211,21 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
-            </span><br>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/2020/12/27/GO-%E2%80%94-%E8%A7%A3%E6%9E%90-GOROOT%E3%80%81GOPATH-%E4%BB%A5%E5%8F%8A-UBUNTU-%E4%B8%AD%E6%9E%84%E5%BB%BA-golang-%E9%A1%B9%E7%9B%AE/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/27/GO-—-解析-GOROOT、GOPATH-以及-UBUNTU-中构建-golang-项目/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -316,6 +330,13 @@
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -544,6 +565,37 @@
   
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://lcrise.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://crisescode.github.io/blog/2020/12/27/GO-%E2%80%94-%E8%A7%A3%E6%9E%90-GOROOT%E3%80%81GOPATH-%E4%BB%A5%E5%8F%8A-UBUNTU-%E4%B8%AD%E6%9E%84%E5%BB%BA-golang-%E9%A1%B9%E7%9B%AE/";
+    this.page.identifier = "2020/12/27/GO-—-解析-GOROOT、GOPATH-以及-UBUNTU-中构建-golang-项目/";
+    this.page.title = "[GO] — 解析 GOROOT、GOPATH 以及 UBUNTU 中构建 golang 项目";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://lcrise.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>
