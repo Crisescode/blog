@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://crisescode.github.io/blog/"/>
-  <updated>2020-10-29T14:20:45.809Z</updated>
+  <updated>2021-01-13T14:20:23.514Z</updated>
   <id>https://crisescode.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020 年终总结</title>
+    <link href="https://crisescode.github.io/blog/2021/01/12/2020-%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>https://crisescode.github.io/blog/2021/01/12/2020-%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</id>
+    <published>2021-01-12T15:09:00.000Z</published>
+    <updated>2021-01-13T14:20:23.514Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直以来自己是不喜欢将一些总结放到博客里来的，感觉这个还是挺私密的，是自己一年的发展回顾。但是看了很多大佬的博客，他们都很擅于总结自己的一年，并且也会将之发到自己的博客上，我感觉这样也挺好的。自己之前都是将这些总结放到本地存储，但这样有时写了一会就不想去写了，很容易虎头蛇尾。因此我决定以后可以将一些总结，感触什么的放到博客里，以此来监督自己一直坚持下去~</p><p>2020，一个不平凡的一年，这整年人人都基本是带着口罩过来的，直到现在还是无法摆脱带口罩，每天出行仍需带着上地铁，进公司。在年初，因为疫情影响，相信很多人都是被困在家远程办公。刚开始在家办公，自己还是不适应的，没有公司的那种开发氛围，很多需求也不能面对面及时的沟通得以解决，这样还是挺不方便的。但是后来，随着在家办公的时间长了，感觉在家办公也不错，至少节省了上下班通勤路上的时间，每天从床上爬起来就可以投入工作，这种感觉还是挺好的。当然这样对于大多数人工作效率肯定是很低的，所以公司还是会尽量要求员工在家隔离完就需要回公司办公了，因此自己大概在今年3月份回到联想大厦办公了。</p><a id="more"></a><p>其实自己在年初的时候给自己的2020定了一些计划的，但是关于实现与否，还真是偏差甚远。首先是打算这一年换一份工作的，最好是NLP算法工程师相关的工作。在今年的前三个月里，自己还是很认真的在学习NLP相关的知识，但是后面发现自己还是很难去找这相关的工作，加上后面在联想又大部分时间在做开发相关的工作，所以后面也就没再学习了。关于跳槽，从今年8月份开始更新几个网站的简历，然后也是8月份开始陆续接到了很多猎头的电话，也面试了很多了公司，最终拿了几个offer，待遇什么的较联想这边也有一定的涨幅。最后选择了一家互联网+金融的公司，信也科技，但不是算法相关的岗位，不过也挺符合自己的发展方向的，目前主要是机器学习容器云平台开发，主要是<br>Python / Go 作为技术栈, 基于 Kubernetes / Docker 打造基于云原生上传数据集，标注，特征提取，训练以及模型部署一体化的机器学习平台。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直以来自己是不喜欢将一些总结放到博客里来的，感觉这个还是挺私密的，是自己一年的发展回顾。但是看了很多大佬的博客，他们都很擅于总结自己的一年，并且也会将之发到自己的博客上，我感觉这样也挺好的。自己之前都是将这些总结放到本地存储，但这样有时写了一会就不想去写了，很容易虎头蛇尾。因此我决定以后可以将一些总结，感触什么的放到博客里，以此来监督自己一直坚持下去~&lt;/p&gt;
+&lt;p&gt;2020，一个不平凡的一年，这整年人人都基本是带着口罩过来的，直到现在还是无法摆脱带口罩，每天出行仍需带着上地铁，进公司。在年初，因为疫情影响，相信很多人都是被困在家远程办公。刚开始在家办公，自己还是不适应的，没有公司的那种开发氛围，很多需求也不能面对面及时的沟通得以解决，这样还是挺不方便的。但是后来，随着在家办公的时间长了，感觉在家办公也不错，至少节省了上下班通勤路上的时间，每天从床上爬起来就可以投入工作，这种感觉还是挺好的。当然这样对于大多数人工作效率肯定是很低的，所以公司还是会尽量要求员工在家隔离完就需要回公司办公了，因此自己大概在今年3月份回到联想大厦办公了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[GO] — 解析 GOROOT、GOPATH 以及 UBUNTU 中构建 golang 项目</title>
+    <link href="https://crisescode.github.io/blog/2020/12/27/GO-%E2%80%94-%E8%A7%A3%E6%9E%90-GOROOT%E3%80%81GOPATH-%E4%BB%A5%E5%8F%8A-UBUNTU-%E4%B8%AD%E6%9E%84%E5%BB%BA-golang-%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://crisescode.github.io/blog/2020/12/27/GO-%E2%80%94-%E8%A7%A3%E6%9E%90-GOROOT%E3%80%81GOPATH-%E4%BB%A5%E5%8F%8A-UBUNTU-%E4%B8%AD%E6%9E%84%E5%BB%BA-golang-%E9%A1%B9%E7%9B%AE/</id>
+    <published>2020-12-27T08:26:31.000Z</published>
+    <updated>2020-12-27T08:29:42.885Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="GO" scheme="https://Crisescode.github.io/blog/categories/GO/"/>
+    
+    
+      <category term="gopath" scheme="https://Crisescode.github.io/blog/tags/gopath/"/>
+    
+      <category term="go-modules" scheme="https://Crisescode.github.io/blog/tags/go-modules/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[GO] golang学习之interface接口</title>
+    <link href="https://crisescode.github.io/blog/2020/12/26/GO-%E2%80%94-Golang%E5%AD%A6%E4%B9%A0%E4%B9%8Binterface%E6%8E%A5%E5%8F%A3/"/>
+    <id>https://crisescode.github.io/blog/2020/12/26/GO-%E2%80%94-Golang%E5%AD%A6%E4%B9%A0%E4%B9%8Binterface%E6%8E%A5%E5%8F%A3/</id>
+    <published>2020-12-26T14:17:21.000Z</published>
+    <updated>2020-12-26T14:19:18.608Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="GO" scheme="https://Crisescode.github.io/blog/categories/GO/"/>
+    
+    
+      <category term="interface" scheme="https://Crisescode.github.io/blog/tags/interface/"/>
+    
+  </entry>
   
   <entry>
     <title>[Kubernetes] 认识一下Kubernetes</title>
@@ -461,80 +521,6 @@
     
     
       <category term="剑指offer" scheme="https://Crisescode.github.io/blog/tags/%E5%89%91%E6%8C%87offer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer 第一天</title>
-    <link href="https://crisescode.github.io/blog/2020/07/06/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%80%E5%A4%A9/"/>
-    <id>https://crisescode.github.io/blog/2020/07/06/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%80%E5%A4%A9/</id>
-    <published>2020-07-06T14:10:47.000Z</published>
-    <updated>2020-07-09T13:31:42.947Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="JZ16-合并两个排序的链表"><a href="#JZ16-合并两个排序的链表" class="headerlink" title="JZ16 合并两个排序的链表"></a>JZ16 合并两个排序的链表</h3><p><strong>题目描述：</strong></p><blockquote><p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p></blockquote><p><strong>解法一思路：</strong><br>使用迭代的方法。先判断临界情况，依次判断输入的两个链表是否为空指针，如果有其中一个为空指针链表，则返回另一个有序的链表。</p><p>然后初始化一个新链表，依次比较两个有序链表的值，哪个链表的值较小，则新链表的指针指向该值。继续循环，依次比较，最终返回单调递增的新链表。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class ListNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.next &#x3D; None</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">class Solution2:</span><br><span class="line">    # 返回合并后列表</span><br><span class="line">    def Merge(self, pHead1, pHead2):</span><br><span class="line">        # write code here</span><br><span class="line">        if pHead1 is None:</span><br><span class="line">            return pHead2</span><br><span class="line">        if pHead2 is None:</span><br><span class="line">            return pHead1</span><br><span class="line"></span><br><span class="line">        node &#x3D; sorted_node &#x3D; ListNode(0)</span><br><span class="line"></span><br><span class="line">        while pHead1 and pHead2:</span><br><span class="line">            if pHead1.val &lt; pHead2.val:</span><br><span class="line">                node.next &#x3D; pHead1</span><br><span class="line">                pHead1 &#x3D; pHead1.next</span><br><span class="line">            else:</span><br><span class="line">                node.next &#x3D; pHead2</span><br><span class="line">                pHead2 &#x3D; pHead2.next</span><br><span class="line">            node &#x3D; node.next</span><br><span class="line"></span><br><span class="line">        if pHead1 or pHead2:</span><br><span class="line">            node.next &#x3D; pHead1 or pHead2</span><br><span class="line"></span><br><span class="line">        return sorted_node.next</span><br><span class="line"></span><br><span class="line">    def travel_list(self, node):</span><br><span class="line">        while node is not None:</span><br><span class="line">            print(node.val, end&#x3D;&quot; &quot;)</span><br><span class="line">            node &#x3D; node.next</span><br></pre></td></tr></table></figure><p><strong>解法二思路：</strong><br>使用递归的方法。大体思路同上，先判断临界情况，依次判断输入的两个链表是否为空指针，如果有其中一个为空指针链表，则返回另一个有序的链表。</p><p>然后依次比较两个有序链表的值，哪个链表的值较小，则将该节点赋值给新链表。使用递归，直至其中一个链表为None，最终返回和并得到的单调递增链表。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class ListNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.next &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    # 返回合并后列表</span><br><span class="line">    def Merge(self, pHead1, pHead2):</span><br><span class="line">        # write code here</span><br><span class="line">        if pHead1 is None:</span><br><span class="line">            return pHead2</span><br><span class="line">        if pHead2 is None:</span><br><span class="line">            return pHead1</span><br><span class="line"></span><br><span class="line">        if pHead1.val &lt; pHead2.val:</span><br><span class="line">            sorted_list &#x3D; pHead1</span><br><span class="line">            sorted_list.next &#x3D; self.Merge(pHead1.next, pHead2)</span><br><span class="line">        else:</span><br><span class="line">            sorted_list &#x3D; pHead2</span><br><span class="line">            sorted_list.next &#x3D; self.Merge(pHead1, pHead2.next)</span><br><span class="line"></span><br><span class="line">        return sorted_list</span><br><span class="line"></span><br><span class="line">    def travel_list(self, node):</span><br><span class="line">        while node is not None:</span><br><span class="line">            print(node.val, end&#x3D;&quot; &quot;)</span><br><span class="line">            node &#x3D; node.next</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    node_1 &#x3D; ListNode(0)</span><br><span class="line">    node_1.next &#x3D; ListNode(4)</span><br><span class="line">    node_1.next.next &#x3D; ListNode(10)</span><br><span class="line">    node_2 &#x3D; ListNode(2)</span><br><span class="line">    node_2.next &#x3D; ListNode(3)</span><br><span class="line">    node_2.next.next &#x3D; ListNode(12)</span><br><span class="line">    solu_1 &#x3D; Solution()</span><br><span class="line">    # print(solu_1.travel_list(solu_1.Merge(node_1, node_2)))</span><br><span class="line">    solu_2 &#x3D; Solution2()</span><br><span class="line">    print(solu_2.travel_list(solu_2.Merge(node_1, node_2)))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 0 2 3 4 10 12 None</span><br></pre></td></tr></table></figure><h3 id="JZ14-链表中倒数第k个结点"><a href="#JZ14-链表中倒数第k个结点" class="headerlink" title="JZ14 链表中倒数第k个结点"></a>JZ14 链表中倒数第k个结点</h3><p><strong>题目描述：</strong></p><blockquote><p>输入一个链表，输出该链表中倒数第k个结点。</p></blockquote><p><strong>解法一思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">lass ListNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.next &#x3D; None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    # 时间复杂度： O(n)</span><br><span class="line">    # 空间复杂度： O(n)</span><br><span class="line">    def FindKthToTail(self, head, k):</span><br><span class="line">        # write code here</span><br><span class="line">        res &#x3D; []</span><br><span class="line"></span><br><span class="line">        while head is not None:</span><br><span class="line">            res.insert(0, head.val)</span><br><span class="line">            head &#x3D; head.next</span><br><span class="line"></span><br><span class="line">        if len(res) &lt; k or k &lt; 1:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        return res[k-1]</span><br><span class="line"></span><br><span class="line">    def travel_listNode(self, listNode):</span><br><span class="line">        while listNode:</span><br><span class="line">            print(listNode.val, end&#x3D;&quot; &quot;)</span><br><span class="line">            listNode &#x3D; listNode.next</span><br></pre></td></tr></table></figure><p><strong>解法二思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution2:</span><br><span class="line">    # 时间复杂度： O(n)</span><br><span class="line">    # 空间复杂度： O(1)</span><br><span class="line">    def FindKthToTail(self, head, k):</span><br><span class="line">        # write code here</span><br><span class="line">        if k &lt; 0 or head is None:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        slow, fast &#x3D; head, head</span><br><span class="line">        count &#x3D; 0</span><br><span class="line">        while fast.next is not None:</span><br><span class="line">            fast &#x3D; fast.next</span><br><span class="line">            if count &gt;&#x3D; k - 1:</span><br><span class="line">                slow &#x3D; slow.next</span><br><span class="line">            count +&#x3D; 1</span><br><span class="line"></span><br><span class="line">        if count &gt;&#x3D; k - 1:</span><br><span class="line">            return slow.val</span><br><span class="line"></span><br><span class="line">        return None</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    curr &#x3D; head &#x3D; ListNode(0)</span><br><span class="line">    head.next &#x3D; ListNode(1)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(2)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(3)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(4) </span><br><span class="line"></span><br><span class="line">    print(Solution().travel_listNode(curr))</span><br><span class="line">    print(Solution().FindKthToTail(curr, 5))</span><br><span class="line">    print(Solution2().FindKthToTail(curr, 5))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 0 1 2 3 4 None</span><br><span class="line">&gt;&gt;&gt; 0</span><br><span class="line">&gt;&gt;&gt; 0</span><br></pre></td></tr></table></figure><h3 id="JZ15-反转链表"><a href="#JZ15-反转链表" class="headerlink" title="JZ15 反转链表"></a>JZ15 反转链表</h3><p><strong>题目描述：</strong></p><blockquote><p>输入一个链表，反转链表后，输出新链表的表头。</p></blockquote><p><strong>解法思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class ListNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.next &#x3D; None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    # 返回ListNode</span><br><span class="line">    def ReverseList(self, pHead):</span><br><span class="line">        # write code here</span><br><span class="line">        if not pHead or pHead.next is None:</span><br><span class="line">            return pHead</span><br><span class="line"></span><br><span class="line">        curr, prev &#x3D; pHead, None</span><br><span class="line">        while curr:</span><br><span class="line">            tmp &#x3D; curr.next</span><br><span class="line">            curr.next &#x3D; prev</span><br><span class="line">            prev &#x3D; curr</span><br><span class="line">            curr &#x3D; tmp</span><br><span class="line"></span><br><span class="line">        return prev</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    curr &#x3D; head &#x3D; ListNode(0)</span><br><span class="line">    head.next &#x3D; ListNode(1)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(2)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(3)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    # print(head)</span><br><span class="line">    print(curr)</span><br><span class="line"></span><br><span class="line">    res &#x3D; Solution().ReverseList(curr)</span><br><span class="line">    print(res)</span><br></pre></td></tr></table></figure><h3 id="JZ13-从尾到头打印链表"><a href="#JZ13-从尾到头打印链表" class="headerlink" title="JZ13 从尾到头打印链表"></a>JZ13 从尾到头打印链表</h3><p><strong>题目描述：</strong></p><blockquote><p>输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</p></blockquote><p><strong>解法思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class ListNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val &#x3D; x</span><br><span class="line">        self.next &#x3D; None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    # 返回从尾部到头部的列表值序列，例如[1,2,3]</span><br><span class="line">    def printListFromTailToHead(self, listNode):</span><br><span class="line">        # write code here</span><br><span class="line">        res &#x3D; []</span><br><span class="line">        while listNode:</span><br><span class="line">            res.insert(0, listNode.val)</span><br><span class="line">            listNode &#x3D; listNode.next</span><br><span class="line"></span><br><span class="line">        return res</span><br><span class="line"></span><br><span class="line">    def travel_listNode(self, listNode):</span><br><span class="line">        while listNode:</span><br><span class="line">            print(listNode.val, end&#x3D;&quot; &quot;)</span><br><span class="line">            listNode &#x3D; listNode.next</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    curr &#x3D; head &#x3D; ListNode(0)</span><br><span class="line">    head.next &#x3D; ListNode(1)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(2)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(3)</span><br><span class="line">    head &#x3D; head.next</span><br><span class="line">    head.next &#x3D; ListNode(4)</span><br><span class="line"></span><br><span class="line">    print(Solution().travel_listNode(curr))</span><br><span class="line">    print(Solution().printListFromTailToHead(curr))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;JZ16-合并两个排序的链表&quot;&gt;&lt;a href=&quot;#JZ16-合并两个排序的链表&quot; class=&quot;headerlink&quot; title=&quot;JZ16 合并两个排序的链表&quot;&gt;&lt;/a&gt;JZ16 合并两个排序的链表&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;题目描述：&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;解法一思路：&lt;/strong&gt;&lt;br&gt;使用迭代的方法。先判断临界情况，依次判断输入的两个链表是否为空指针，如果有其中一个为空指针链表，则返回另一个有序的链表。&lt;/p&gt;
-&lt;p&gt;然后初始化一个新链表，依次比较两个有序链表的值，哪个链表的值较小，则新链表的指针指向该值。继续循环，依次比较，最终返回单调递增的新链表。&lt;/p&gt;
-&lt;!--�770--&gt;
-&lt;p&gt;&lt;strong&gt;解法二思路：&lt;/strong&gt;&lt;br&gt;使用递归的方法。大体思路同上，先判断临界情况，依次判断输入的两个链表是否为空指针，如果有其中一个为空指针链表，则返回另一个有序的链表。&lt;/p&gt;
-&lt;p&gt;然后依次比较两个有序链表的值，哪个链表的值较小，则将该节点赋值给新链表。使用递归，直至其中一个链表为None，最终返回和并得到的单调递增链表。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="刷题" scheme="https://Crisescode.github.io/blog/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    
-      <category term="剑指offer" scheme="https://Crisescode.github.io/blog/tags/%E5%89%91%E6%8C%87offer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NLP（1）文本分类知识梳理</title>
-    <link href="https://crisescode.github.io/blog/2020/06/27/NLP%EF%BC%881%EF%BC%89%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
-    <id>https://crisescode.github.io/blog/2020/06/27/NLP%EF%BC%881%EF%BC%89%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
-    <published>2020-06-27T07:17:47.000Z</published>
-    <updated>2020-08-08T06:58:03.790Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="NLP" scheme="https://Crisescode.github.io/blog/categories/NLP/"/>
-    
-      <category term="文本分类" scheme="https://Crisescode.github.io/blog/categories/NLP/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/"/>
-    
-    
-      <category term="文本分类" scheme="https://Crisescode.github.io/blog/tags/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://crisescode.github.io/blog/2020/06/21/hello-world/"/>
-    <id>https://crisescode.github.io/blog/2020/06/21/hello-world/</id>
-    <published>2020-06-21T14:21:53.997Z</published>
-    <updated>2020-06-18T05:46:18.345Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
