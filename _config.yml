@@ -102,8 +102,6 @@ deploy:
   type: git
   repo: git@github.com:Crisescode/blog.git
   branch: gh-pages
-  name: Crisescode
-  email: zhaopanp2018@outlook.com
 
 # Search
 search:
