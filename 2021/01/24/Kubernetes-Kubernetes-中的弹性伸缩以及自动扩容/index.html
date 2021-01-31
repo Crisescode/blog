@@ -21,17 +21,19 @@
   </script>
 
   <meta name="description" content="分享技术，记录生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LuckyCrise">
-<meta property="og:url" content="https://crisescode.github.io/blog/tags/HTTP-%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Kubernetes] Kubernetes 中的弹性伸缩以及自动扩容">
+<meta property="og:url" content="https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/index.html">
 <meta property="og:site_name" content="LuckyCrise">
 <meta property="og:description" content="分享技术，记录生活">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-24T14:44:58.000Z">
+<meta property="article:modified_time" content="2021-01-24T14:44:58.791Z">
 <meta property="article:author" content="Crise">
 <meta property="article:tag" content="Python | Golang | NLP | Web后端">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://crisescode.github.io/blog/tags/HTTP-%E9%83%A8%E7%BD%B2/">
+<link rel="canonical" href="https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: HTTP 部署 | LuckyCrise</title>
+  <title>[Kubernetes] Kubernetes 中的弹性伸缩以及自动扩容 | LuckyCrise</title>
   
 
 
@@ -166,57 +168,159 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/author.jpg">
+      <meta itemprop="name" content="Crise">
+      <meta itemprop="description" content="分享技术，记录生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LuckyCrise">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Kubernetes] Kubernetes 中的弹性伸缩以及自动扩容
+        </h1>
+
+        <div class="post-meta">
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-24 22:44:58" itemprop="dateCreated datePublished" datetime="2021-01-24T22:44:58+08:00">2021-01-24</time>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">HTTP 部署
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/24/Kubernetes-Kubernetes-中的弹性伸缩以及自动扩容/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-31T23:05:49+08:00"
-              content="2020-08-31">
-          08-31
-        </time>
+    
+    
+    
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        <div class="reward-container">
+  <div>感谢您的赞赏和支持！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/wechatpay.jpg" alt="Crise 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/alipay.jpg" alt="Crise 支付宝">
+        <p>支付宝</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/blog/2020/08/31/NLP-%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5%EF%BC%881%EF%BC%89Gunicorn-Falcon-Model/" itemprop="url">
-            <span itemprop="name">[AI] 模型部署实践（1）Gunicorn + Falcon + Model</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Crise
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/" title="[Kubernetes] Kubernetes 中的弹性伸缩以及自动扩容">https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-中的弹性伸缩以及自动扩容/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/01/12/2020-%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" rel="prev" title="2020 年终总结">
+      <i class="fa fa-chevron-left"></i> 2020 年终总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -435,6 +539,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/";
+    this.page.identifier = "2021/01/24/Kubernetes-Kubernetes-中的弹性伸缩以及自动扩容/";
+    this.page.title = "[Kubernetes] Kubernetes 中的弹性伸缩以及自动扩容";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://lcrise.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
