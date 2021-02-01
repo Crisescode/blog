@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://crisescode.github.io/blog/"/>
-  <updated>2021-01-24T14:44:58.791Z</updated>
+  <updated>2021-02-01T15:52:02.397Z</updated>
   <id>https://crisescode.github.io/blog/</id>
   
   <author>
@@ -17,17 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[Docker] Docker-Compose 快速上手指南</title>
+    <link href="https://crisescode.github.io/blog/2021/01/31/Docker-Docker-Compose-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/"/>
+    <id>https://crisescode.github.io/blog/2021/01/31/Docker-Docker-Compose-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97/</id>
+    <published>2021-01-31T15:40:05.000Z</published>
+    <updated>2021-02-01T15:52:02.397Z</updated>
+    
+    <content type="html"><![CDATA[<p>在本文中，将会构建一个运行在 <code>Docker Compose</code> 上的简单 <code>Python web</code> 应用程序。应用程序使用 <code>Flask</code> 框架来启动一个简单的 <code>web</code> 服务，该服务会在 <code>Redis</code> 中维护一个计数器来展示点击浏览器的数量。</p><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>当然，你需要确保你环境中已经安装好了 <a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener"><code>Docker</code></a>以及<a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener"><code>Docker Compose</code></a>。当然，你可以不用安装 <code>Python</code> 或者 <code>Redis</code>，因为这些都将会运行在 <code>Docker</code> 镜像中。</p><a id="more"></a><h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>首先准备程序文件，以及各种依赖，如下：</p><ol><li>创建一个目录：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu: mkdir -p docker&#x2F;compose</span><br><span class="line">root@ubuntu: cd docker&#x2F;compose</span><br></pre></td></tr></table></figure></li><li>新建一个<code>py</code>文件，将下面代码粘贴到文件中：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">import redis</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app &#x3D; Flask(__name__)</span><br><span class="line">cache &#x3D; redis.Redis(host&#x3D;&#39;redis&#39;, port&#x3D;6379)</span><br><span class="line"></span><br><span class="line">def get_hit_count():</span><br><span class="line">    retries &#x3D; 5</span><br><span class="line">    while True:</span><br><span class="line">        try:</span><br><span class="line">            return cache.incr(&#39;hits&#39;)</span><br><span class="line">        except redis.exceptions.ConnectionError as exc:</span><br><span class="line">            if retries &#x3D;&#x3D; 0:</span><br><span class="line">                raise exc</span><br><span class="line">            retries -&#x3D; 1</span><br><span class="line">            time.sleep(0.5)</span><br><span class="line"></span><br><span class="line">@app.route(&#39;&#x2F;&#39;)</span><br><span class="line">def hello():</span><br><span class="line">    count &#x3D; get_hit_count()</span><br><span class="line">    return &#39;Hello World! I have been seen &#123;&#125; times.\n&#39;.format(count)</span><br></pre></td></tr></table></figure>在这个例子中，<code>redis</code>作为应用程序网络中<code>redis</code>容器的主机名。我们使用<code>Redis</code>的默认端口，6379。</li><li>在目录中创建一个 <code>requirements.txt</code> 文件，写入以后 <code>python</code> 包：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flask</span><br><span class="line">redis</span><br></pre></td></tr></table></figure></li></ol><h3 id="创建-Dockerfile"><a href="#创建-Dockerfile" class="headerlink" title="创建 Dockerfile"></a>创建 <code>Dockerfile</code></h3><p>在这个步骤中，您编写一个构建<code>Docker</code> 镜像的 <code>Dockerfile</code>。该镜像包含 <code>Python</code> 应用程序所需的所有依赖项，包括 <code>Python</code> 本身。<br>在你的项目目录中，创建一个名为 <code>Dockerfile</code> 的文件，并粘贴以下内容:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FROM python:3.7-alpine</span><br><span class="line">WORKDIR &#x2F;code</span><br><span class="line">ENV FLASK_APP&#x3D;app.py</span><br><span class="line">ENV FLASK_RUN_HOST&#x3D;0.0.0.0</span><br><span class="line">RUN apk add --no-cache gcc musl-dev linux-headers</span><br><span class="line">COPY requirements.txt requirements.txt</span><br><span class="line">RUN pip install -r requirements.txt</span><br><span class="line">EXPOSE 5000</span><br><span class="line">COPY . .</span><br><span class="line">CMD [&quot;flask&quot;, &quot;run&quot;]</span><br></pre></td></tr></table></figure><h3 id="定义-Docker-Compose-文件"><a href="#定义-Docker-Compose-文件" class="headerlink" title="定义 Docker-Compose 文件"></a>定义 <code>Docker-Compose</code> 文件</h3><p>在你的项目目录下创建一个名为 <code>docker-compose.yaml</code> 文件，目前项目目录文件有:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在本文中，将会构建一个运行在 &lt;code&gt;Docker Compose&lt;/code&gt; 上的简单 &lt;code&gt;Python web&lt;/code&gt; 应用程序。应用程序使用 &lt;code&gt;Flask&lt;/code&gt; 框架来启动一个简单的 &lt;code&gt;web&lt;/code&gt; 服务，该服务会在 &lt;code&gt;Redis&lt;/code&gt; 中维护一个计数器来展示点击浏览器的数量。&lt;/p&gt;
+&lt;h3 id=&quot;环境准备&quot;&gt;&lt;a href=&quot;#环境准备&quot; class=&quot;headerlink&quot; title=&quot;环境准备&quot;&gt;&lt;/a&gt;环境准备&lt;/h3&gt;&lt;p&gt;当然，你需要确保你环境中已经安装好了 &lt;a href=&quot;https://docs.docker.com/get-docker/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;Docker&lt;/code&gt;&lt;/a&gt;以及&lt;a href=&quot;https://docs.docker.com/compose/install/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;Docker Compose&lt;/code&gt;&lt;/a&gt;。当然，你可以不用安装 &lt;code&gt;Python&lt;/code&gt; 或者 &lt;code&gt;Redis&lt;/code&gt;，因为这些都将会运行在 &lt;code&gt;Docker&lt;/code&gt; 镜像中。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://Crisescode.github.io/blog/categories/Docker/"/>
+    
+    
+      <category term="docker-compose" scheme="https://Crisescode.github.io/blog/tags/docker-compose/"/>
+    
+      <category term="docker" scheme="https://Crisescode.github.io/blog/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[Kubernetes] Kubernetes 中的弹性伸缩以及自动扩容</title>
     <link href="https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/"/>
     <id>https://crisescode.github.io/blog/2021/01/24/Kubernetes-Kubernetes-%E4%B8%AD%E7%9A%84%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E4%BB%A5%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%89%A9%E5%AE%B9/</id>
     <published>2021-01-24T14:44:58.000Z</published>
-    <updated>2021-01-24T14:44:58.791Z</updated>
+    <updated>2021-01-31T15:44:38.392Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="Kubernetes" scheme="https://Crisescode.github.io/blog/categories/Kubernetes/"/>
+    
+    
+      <category term="kubernetes" scheme="https://Crisescode.github.io/blog/tags/kubernetes/"/>
+    
+      <category term="弹性扩容" scheme="https://Crisescode.github.io/blog/tags/%E5%BC%B9%E6%80%A7%E6%89%A9%E5%AE%B9/"/>
     
   </entry>
   
@@ -36,7 +68,7 @@
     <link href="https://crisescode.github.io/blog/2021/01/12/2020-%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     <id>https://crisescode.github.io/blog/2021/01/12/2020-%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</id>
     <published>2021-01-12T15:09:00.000Z</published>
-    <updated>2021-01-31T14:49:48.021Z</updated>
+    <updated>2021-01-31T15:46:18.378Z</updated>
     
     <content type="html"><![CDATA[<p>一直以来自己是不喜欢将一些总结放到博客里来的，感觉这个还是挺私密的，是自己一年的发展回顾。但是看了很多大佬的博客，他们都很擅于总结自己的一年，并且也会将之发到自己的博客上，我感觉这样也挺好的。自己之前都是将这些总结放到本地存储，但这样有时写了一会就不想去写了，很容易虎头蛇尾。因此我决定以后可以将一些总结，感触什么的放到博客里，以此来监督自己一直坚持下去~</p><a id="more"></a><p>2020，一个不平凡的一年，这整年人人都基本是带着口罩过来的，直到现在还是无法摆脱带口罩，每天出行仍需带着上地铁，进公司。在年初，因为疫情影响，相信很多人都是被困在家远程办公。刚开始在家办公，自己还是不适应的，没有公司的那种开发氛围，很多需求也不能面对面及时的沟通得以解决，这样还是挺不方便的。但是后来，随着在家办公的时间长了，感觉在家办公也不错，至少节省了上下班通勤路上的时间，每天从床上爬起来就可以投入工作，这种感觉还是挺好的。当然这样对于大多数人工作效率肯定是很低的，所以公司还是会尽量要求员工在家隔离完就需要回公司办公了，因此自己大概在今年3月份回到联想大厦办公了。</p><p>其实自己在年初的时候给自己的2020定了一些计划的，但是关于实现与否，还真是偏差甚远。首先是打算这一年换一份工作的，最好是NLP算法工程师相关的工作。在今年的前三个月里，自己还是很认真的在学习NLP相关的知识，但是后面发现自己还是很难去找这相关的工作，加上后面在联想又大部分时间在做开发相关的工作，所以后面也就没再学习了。关于跳槽，从今年8月份开始更新几个网站的简历，然后也是8月份开始陆续接到了很多猎头的电话，也面试了很多了公司，最终拿了几个offer，待遇什么的较联想这边也有一定的涨幅。最后选择了一家互联网+金融的公司，信也科技，但不是算法相关的岗位，不过也挺符合自己的发展方向的，目前主要是机器学习容器云平台开发，主要是 Python / Go 作为技术栈, 基于 Kubernetes / Docker 打造基于云原生上传数据集，标注，特征提取，训练以及模型部署一体化的机器学习平台。感觉2020年在职业上是自我探索的一年，也就是发展方向以及职业方向都在探索的过程中，是逐渐趋于明朗的过程，也很庆幸自己能够找到方向感，以后一定会为之奋斗下去。</p>]]></content>
     
@@ -47,6 +79,10 @@
     </summary>
     
     
+      <category term="生活日记" scheme="https://Crisescode.github.io/blog/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B0/"/>
+    
+    
+      <category term="个人总结" scheme="https://Crisescode.github.io/blog/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -95,13 +131,17 @@
     <link href="https://crisescode.github.io/blog/2020/10/29/Kubernetes-%E8%AE%A4%E8%AF%86%E4%B8%80%E4%B8%8BKubernetes/"/>
     <id>https://crisescode.github.io/blog/2020/10/29/Kubernetes-%E8%AE%A4%E8%AF%86%E4%B8%80%E4%B8%8BKubernetes/</id>
     <published>2020-10-29T14:20:45.000Z</published>
-    <updated>2020-10-29T14:20:45.809Z</updated>
+    <updated>2021-01-31T15:47:43.481Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="Kubernetes" scheme="https://Crisescode.github.io/blog/categories/Kubernetes/"/>
+    
+    
+      <category term="kubernetes" scheme="https://Crisescode.github.io/blog/tags/kubernetes/"/>
     
   </entry>
   
@@ -467,33 +507,6 @@
 &lt;p&gt;&lt;strong&gt;后序遍历是先遍历左节点，然后遍历右节点，最后遍历根节点（根左右）&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本题给定前序遍历以及中序遍历的序列，可以知道前序遍历第一个值一定是根节点。而根节点在中序遍历中会把左右子树分成两半。因此本题的关键是找到根节点，然后将左右子树依次递归重建得到二叉树。&lt;/p&gt;
 &lt;p&gt;使用递归是需要结束条件的，当前序或中序遍历序列为&lt;code&gt;None&lt;/code&gt;时，便可推出递归，得到二叉树。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="刷题" scheme="https://Crisescode.github.io/blog/categories/%E5%88%B7%E9%A2%98/"/>
-    
-    
-      <category term="剑指offer" scheme="https://Crisescode.github.io/blog/tags/%E5%89%91%E6%8C%87offer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指offer 第三天</title>
-    <link href="https://crisescode.github.io/blog/2020/07/08/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%89%E5%A4%A9/"/>
-    <id>https://crisescode.github.io/blog/2020/07/08/%E5%89%91%E6%8C%87offer-%E7%AC%AC%E4%B8%89%E5%A4%A9/</id>
-    <published>2020-07-08T14:33:32.000Z</published>
-    <updated>2020-07-11T15:58:13.010Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="JZ11-二进制中1的个数"><a href="#JZ11-二进制中1的个数" class="headerlink" title="JZ11 二进制中1的个数"></a>JZ11 二进制中1的个数</h3><p><strong>题目描述：</strong></p><blockquote><p>输入一个整数，输出该数32位二进制表示中1的个数。其中负数用补码表示。</p></blockquote><p><strong>解法思路：</strong></p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def NumberOf1(self, n):</span><br><span class="line">    # write code here</span><br><span class="line">    count &#x3D; 0</span><br><span class="line"></span><br><span class="line">    if n &lt; 0:</span><br><span class="line">        n &#x3D; n &amp; 0b11111111111111111111111111111111</span><br><span class="line"></span><br><span class="line">    while n !&#x3D; 0:</span><br><span class="line">        count +&#x3D; 1</span><br><span class="line">        n &#x3D; n &amp; (n - 1)</span><br><span class="line"></span><br><span class="line">    return count</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().NumberOf1(-11))</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt; 30</span><br></pre></td></tr></table></figure><h3 id="JZ27-字符串的排列"><a href="#JZ27-字符串的排列" class="headerlink" title="JZ27 字符串的排列"></a>JZ27 字符串的排列</h3><p><strong>题目描述：</strong></p><blockquote><p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。</p></blockquote><blockquote><p>输入一个字符串，长度不超过9（可能有字符重复），字符只包括大小写字母。</p></blockquote><p><strong>解法思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Permutation(self, ss):</span><br><span class="line">        # write code here</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="JZ47-求1-2-3-…-n"><a href="#JZ47-求1-2-3-…-n" class="headerlink" title="JZ47 求1 + 2 + 3 + … + n"></a>JZ47 求1 + 2 + 3 + … + n</h3><p><strong>题目描述：</strong></p><blockquote><p>求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p></blockquote><p><strong>解法思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def Sum_Solution(self, n):</span><br><span class="line">        # write code here</span><br><span class="line">        res &#x3D; n</span><br><span class="line">        try:</span><br><span class="line">            res % n</span><br><span class="line">            res +&#x3D; self.Sum_Solution(n - 1)</span><br><span class="line">        except ZeroDivisionError:</span><br><span class="line">            return 0</span><br><span class="line"></span><br><span class="line">        return res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution2:</span><br><span class="line">    def Sum_Solution(self, n):</span><br><span class="line">        # write code here</span><br><span class="line">        res &#x3D; n</span><br><span class="line">        tmp &#x3D; (res and self.Sum_Solution(n - 1))</span><br><span class="line">        res +&#x3D; tmp</span><br><span class="line"></span><br><span class="line">        return res</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    print(Solution().Sum_Solution(5))</span><br><span class="line">    print(Solution2().Sum_Solution(6))</span><br><span class="line">    </span><br><span class="line">&gt;&gt;&gt; 15</span><br><span class="line">21</span><br></pre></td></tr></table></figure><h3 id="JZ51-构建乘积数组"><a href="#JZ51-构建乘积数组" class="headerlink" title="JZ51 构建乘积数组"></a>JZ51 构建乘积数组</h3><p><strong>题目描述：</strong></p><blockquote><p>给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]<em>A[1]</em>…<em>A[i-1]*A[i+1]</em>…*A[n-1]。不能使用除法。（注意：规定B[0] = A[1] * A[2] * … * A[n-1]，B[n-1] = A[0] * A[1] * … * A[n-2];）</p></blockquote><p><strong>解法思路：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def multiply(self, A):</span><br><span class="line">        # write code here</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure><p><strong>代码测试：</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;JZ11-二进制中1的个数&quot;&gt;&lt;a href=&quot;#JZ11-二进制中1的个数&quot; class=&quot;headerlink&quot; title=&quot;JZ11 二进制中1的个数&quot;&gt;&lt;/a&gt;JZ11 二进制中1的个数&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;题目描述：&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输入一个整数，输出该数32位二进制表示中1的个数。其中负数用补码表示。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;解法思路：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
