@@ -1,7 +1,7 @@
 title: '[Kubernetes] 基于kubeadm搭建一个完整的Kubernetes集群'
 tags:
   - kubeadm
-  - k8s集群
+  - k8s 
 category: Kubernetes
 date: 2020-09-29 09:42:25
 ---
