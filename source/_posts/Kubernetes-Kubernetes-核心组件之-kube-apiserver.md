@@ -4,7 +4,7 @@ tags:
   - k8s
   - api-server
 index_img: /img/1.jpg
-banner_img: /img/2.jpg
+banner_img: /img/1.jpg
 date: 2021-11-15 22:36:19
 category: Kubernetes
 ---
