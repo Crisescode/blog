@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Crise">
+  <meta name="keywords" content="Python | Golang | NLP | Web后端">
+  
+    <meta name="description" content="有哪些组件Kubernetes 集群分为两个部分：  Kubernetes 控制平面 （工作）节点  其中控制平面的组件有：  Etcd 分布式持久化存储 API Server Kube Scheduler Kube Controller  运行容器任务依赖于每个工作节点上运行的组件，包括：  Kubelet Kubelet 服务代理（kube proxy） 容器运行时（docker，rkt，co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Kubernetes] 认识一下Kubernetes">
+<meta property="og:url" content="https://crisescode.github.io/blog/2020/10/29/Kubernetes-%E8%AE%A4%E8%AF%86%E4%B8%80%E4%B8%8BKubernetes/index.html">
+<meta property="og:site_name" content="LuckyCrise">
+<meta property="og:description" content="有哪些组件Kubernetes 集群分为两个部分：  Kubernetes 控制平面 （工作）节点  其中控制平面的组件有：  Etcd 分布式持久化存储 API Server Kube Scheduler Kube Controller  运行容器任务依赖于每个工作节点上运行的组件，包括：  Kubelet Kubelet 服务代理（kube proxy） 容器运行时（docker，rkt，co">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-29T14:20:45.000Z">
+<meta property="article:modified_time" content="2023-06-05T10:51:09.800Z">
+<meta property="article:author" content="Crise">
+<meta property="article:tag" content="k8s">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>[Kubernetes] 认识一下Kubernetes - LuckyCrise</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"crisescode.github.io","root":"/blog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/blog/atom.xml" title="LuckyCrise" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>LuckyCrise&#39;Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="[Kubernetes] 认识一下Kubernetes"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Crise
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-10-29 22:20" pubdate>
+          星期四, 十月 29日 2020, 10:20 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          189 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          1 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">[Kubernetes] 认识一下Kubernetes</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="有哪些组件"><a href="#有哪些组件" class="headerlink" title="有哪些组件"></a>有哪些组件</h2><p>Kubernetes 集群分为两个部分：</p>
+<ul>
+<li>Kubernetes 控制平面</li>
+<li>（工作）节点</li>
+</ul>
+<p>其中控制平面的组件有：</p>
+<ul>
+<li>Etcd 分布式持久化存储</li>
+<li>API Server</li>
+<li>Kube Scheduler</li>
+<li>Kube Controller</li>
+</ul>
+<p>运行容器任务依赖于每个工作节点上运行的组件，包括：</p>
+<ul>
+<li>Kubelet</li>
+<li>Kubelet 服务代理（kube proxy）</li>
+<li>容器运行时（docker，rkt，containerd或者其他）</li>
+</ul>
+<!--more>
+
+除了控制平面以及工作节点的组件，还有几个附件组件，如下：
+* Kubernetes DNS 服务器
+* 仪表板
+* Igress 控制器
+* Heapster（容器集群监控）
+* 容器网络接口插件
+
+### 组件如何通信
+Kubernetes 系统组件间只能通过 API Server 通信，他们之间不会直接通信。API Server 是和 etcd 通信的唯一组件，其他组件都不会直接和 etcd 通信，而是通过 API Server 来修改集群的状态。
+
+
+### 检查控制平面组件的状态
+API Server 对外暴露了一个名为 ComponentStatus 的 API 资源，用来显示每个控制平面组件的健康状态。可以通过 kubectl 列出各个组件以及它们的状态：
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">[root@<span class="hljs-keyword">bigdatafat041120 </span>~]<span class="hljs-comment"># kubectl get componentstatuses</span><br><span class="hljs-symbol">Warning:</span> <span class="hljs-built_in">v1</span> ComponentStatus is deprecated in <span class="hljs-built_in">v1</span>.<span class="hljs-number">19</span>+<br>NAME                 STATUS    MESSAGE             ERROR<br><span class="hljs-keyword">scheduler </span>           Healthy   ok<br>controller-manager   Healthy   ok<br>etcd<span class="hljs-number">-1</span>               Healthy   &#123;<span class="hljs-string">&quot;health&quot;</span>:<span class="hljs-string">&quot;true&quot;</span>&#125;<br>etcd<span class="hljs-number">-2</span>               Healthy   &#123;<span class="hljs-string">&quot;health&quot;</span>:<span class="hljs-string">&quot;true&quot;</span>&#125;<br>etcd<span class="hljs-number">-0</span>               Healthy   &#123;<span class="hljs-string">&quot;health&quot;</span>:<span class="hljs-string">&quot;true&quot;</span>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="Etcd-组件"><a href="#Etcd-组件" class="headerlink" title="Etcd 组件"></a>Etcd 组件</h2><h2 id="API-Server-组件"><a href="#API-Server-组件" class="headerlink" title="API Server 组件"></a>API Server 组件</h2><p><code>Kubernetes API Server</code> 作为中心组件，其他组件或者客户端（如 <code>kubectl</code>）都回去调用它。其以<code>RESTful API</code> 的形式提供了可以查询，修改集群状态的 <code>CURD（Create，Read，Update，Detele）</code>接口，然后将状态储存到 <code>etcd</code> 中。</p>
+<p><code>API Server</code> 除了提供一种一致的方式将对象存储到 <code>etcd</code>, 也对这些对象做校验，<br>这样客户端就无法存入非法的对象了（直接写入存储的话是有可能的）。除了校验，<br>还会处理乐观锁， 这样对于并发更新的情况， 对对象做更改就不会被其他客户端覆盖。</p>
+<h3 id="API-Server-如何创建一个资源"><a href="#API-Server-如何创建一个资源" class="headerlink" title="API Server 如何创建一个资源"></a>API Server 如何创建一个资源</h3><p><code>API Server</code> 的客户端之一就是刚开始介绍的命令行工作 <code>kubectl</code>。当以 <code>yaml</code> 文件创建一个资源，<code>kubectl</code> 通过一个 <code>HTTP POST</code> 请求将文件内容发布到 <code>API Server</code>。</p>
+<ul>
+<li><p>通过认证插件认证客户端</p>
+</li>
+<li><p>通过授权插件授权客户端</p>
+</li>
+<li><p>通过准入控制插件验证 <code>AND/OR</code> 修改资源请求<br>如果请求尝试创建，修改或者删除从一个资源，请求需要经过准入控制插件的验证。服务器会配置多个准入控制插件，这些插件会因为各种原因修改资源，可能会初始化资源定义中漏配的字段为默认值，甚至重写他们。插件甚至还会去修改并不在请求中的相关资源，同时也会因为某些原因拒绝一个请求。<br>准入控制插件包括：</p>
+<ul>
+<li>AlwayPullImages —— 重写 pod 的 imagePullPolicy 为 Always，强制每次部署 pod 时拉取镜像；</li>
+<li>ServiceAccount —— 未明确定义服务账户的使用默认账户；</li>
+<li>NamespaceLifecycle —— 防止在命名空间中创建正在呗删除的 pod，或者在不存在的命令空间中创建 pod；</li>
+<li>ResourceQuota —— 保证特定命名空间中的 pod 只能使用该命名空间分配数量的资源，如 CPU 和内存。</li>
+</ul>
+</li>
+<li><p>验证资源以及持久化存储<br>请求通过了所有的准入控制插件后，API Server 会验证存储到 etcd 的对象，然后返回一个响应给客户端。</p>
+</li>
+</ul>
+<h2 id="Kube-Scheduler-组件"><a href="#Kube-Scheduler-组件" class="headerlink" title="Kube Scheduler 组件"></a>Kube Scheduler 组件</h2><h3 id="默认的调度算法"><a href="#默认的调度算法" class="headerlink" title="默认的调度算法"></a>默认的调度算法</h3><p>选择节点进行调度，可以分解为两部分，如下：</p>
+<ul>
+<li>过滤所有节点，找出能分配 pod 的可用节点列表；</li>
+<li>对可用节点按优先级排序，找出最优节点，如果多个节点都有最高的优先级分数，则循环分配，确保平均分配的 pods。</li>
+</ul>
+<h3 id="使用多个调用器"><a href="#使用多个调用器" class="headerlink" title="使用多个调用器"></a>使用多个调用器</h3><p>可以在集群中运行多个调度器而非单个，然后，对每一个 <code>pod</code>，可以通过在 <code>pod</code> 特性中设置 <code>schedulerName</code> 属性指定调度器来调度特定的 pod。<br>未设置该属性的 <code>pod</code> 由默认调度器调度， 因此其<code>schedulerName</code> 被设置为<br><code>default-scheduler</code> 。其他设置了该属性的 <code>pod</code> 会被默认调度器忽略掉， 它们要<br>么是手动调用， 要么被监听这类 <code>pod</code> 的调度器调用。<br>可以实现自己的调度器， 部署到集群， 或者可以部署有不同配置项的额外<br><code>Kubernetes</code> 调度器实例。</p>
+<h2 id="Kube-Controller-控制器组件"><a href="#Kube-Controller-控制器组件" class="headerlink" title="Kube-Controller 控制器组件"></a>Kube-Controller 控制器组件</h2><p>如前面提到的， <code>API Server</code> 只做了存储资源到 <code>etcd</code> 和通知客户端有变更的工作。<br>调度器则只是给 <code>pod</code> 分配节点， 所以需要有活跃的组件确保系统真实状态朝 <code>API Server</code> 定义的期望的状态收敛。这个工作由控制器管理器里的控制器来实现。<br>单个控制器、管理器进程当前组合了多个执行不同非冲突任务的控制器。这些<br>控制器最终会被分解到不同的进程， 如果需要的话， 我们能够用自定义实现替换它<br>们每一个。其中控制器包括:</p>
+<ul>
+<li>Replication 管理器（ReplicationController 资源管理器）</li>
+<li>ReplicaSet、DaemonSet 以及 Job Controller</li>
+<li>Deployment Controller</li>
+<li>StatefulSet Controller</li>
+<li>Node Controller</li>
+<li>Service Controller</li>
+<li>Endpoints Controller</li>
+<li>Namespace Controller</li>
+<li>PersistentVolume Controller</li>
+<li>其他</li>
+</ul>
+<p>控制器执行一个“调和”循环，将实际状态调整为期望状态（在资源spec部分定义），然后将新的实际状态写入资源的 status 部分。控制器利用监听机制来订阅变更，但是由于使用监听机制并不保证控制器不会漏掉时间，所以仍需要定期执行重列举操作来确保不会丢掉什么。</p>
+<h2 id="Worker-节点的组件介绍"><a href="#Worker-节点的组件介绍" class="headerlink" title="Worker 节点的组件介绍"></a>Worker 节点的组件介绍</h2><h3 id="Kubelet-组件"><a href="#Kubelet-组件" class="headerlink" title="Kubelet 组件"></a>Kubelet 组件</h3><h3 id="Kubernetes-Service-Proxy-组件"><a href="#Kubernetes-Service-Proxy-组件" class="headerlink" title="Kubernetes Service Proxy 组件"></a>Kubernetes Service Proxy 组件</h3><p>除了有 <code>Kubelet</code>，每个工作节点还会运行 <code>kube-proxy</code>组件，用于确保客户端可以用过 <code>Kubernetes API</code> 连接到你定义的服务。<code>kube-proxy</code> 确保对服务 <code>IP</code> 和端口的连接最终<br>能到达支持服务（或者其他，非 <code>pod</code> 服务终端）的某个 <code>pod</code> 处。如果有多个 <code>pod</code> 支<br>撑一个服务，那么代理会发挥对 <code>pod</code> 的负载均衡作用。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/Kubernetes/" class="category-chain-item">Kubernetes</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/blog/tags/k8s/">#k8s</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[Kubernetes] 认识一下Kubernetes</div>
+      <div>https://crisescode.github.io/blog/2020/10/29/Kubernetes-认识一下Kubernetes/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Crise</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年10月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/2020/12/26/GO-%E2%80%94-Golang%E5%AD%A6%E4%B9%A0%E4%B9%8Binterface%E6%8E%A5%E5%8F%A3/" title="[GO] golang学习之interface接口">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">[GO] golang学习之interface接口</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/2020/10/18/LeetCode-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%A0%91/" title="[LeetCode] 数据结构之树">
+                        <span class="hidden-mobile">[LeetCode] 数据结构之树</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'fluid',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
