@@ -3,7 +3,7 @@ type: about
 date: 2020-06-18 21:28:08
 ---
 ## 关于我
-I am a artificial intelligence software engineer at Lenovo Shanghai. I received my Master degree in Control Engineering from USST(University of Shanghai for Science and Technology). Most of my experiences lie in AI model deployment and developing middleware to submit AI job. I am broadly interested in NLP and backend technologies, especially systems with some AI/ML flavor. 
+95年后端程序员，先后在联想，信也科技（至今）搬砖，主要从事容器云机器学习平台系统开发相关工作。
+对LLM，MLSys，MLOps，容器云，Kubernetes，Golang 等技术感兴趣。
 
 ## 找到我
-
